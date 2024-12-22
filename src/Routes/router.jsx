@@ -8,6 +8,7 @@ import AddFood from "../Pages/AddFood";
 import MyFoods from "../Pages/MyFoods";
 import AllFoods from "../Pages/AllFoods";
 import FoodDetails from "../Pages/FoodDetails";
+import FoodPurchase from "../Pages/FoodPurchase";
 
 const router = createBrowserRouter([
   {
@@ -29,14 +30,18 @@ const router = createBrowserRouter([
       {
         path: "/food/:id",
         element: <FoodDetails></FoodDetails>,
-        loader: async ({ params }) => {
-          const res = await fetch(
-            `${import.meta.env.VITE_API_URL}/foods`
-          );
-          const foods = await res.json();
-          const food = foods.find((f) => f._id == params.id);
-          return food;
-        },
+        loader: ({ params }) =>
+          fetch(`${import.meta.env.VITE_API_URL}/food/${params.id}`),
+      },
+      {
+        path: "/purchase-food/:id",
+        element: (
+          <PrivateRoute>
+            <FoodPurchase></FoodPurchase>
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`${import.meta.env.VITE_API_URL}/food/${params.id}`),
       },
       {
         path: "/my-foods",
