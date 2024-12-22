@@ -29,6 +29,7 @@ export default function FoodPurchase() {
     const order = {
       foodName: foodName,
       foodImage: foodImage,
+      price: price,
       orderQuantity,
       foodOwner: addedBy?.email,
       foodId: _id,
