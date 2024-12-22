@@ -40,7 +40,7 @@ export default function AddFood() {
       e.target.reset();
       // 3. Show toast and navigate
       toast.success("Food Added Successfully!!!");
-      // navigate('/my-foods')
+      navigate('/my-foods')
     } catch (err) {
       console.log(err);
       toast.error(err.message);

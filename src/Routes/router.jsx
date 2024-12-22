@@ -5,6 +5,8 @@ import Register from "../Pages/Register";
 import Login from "../Pages/Login";
 import PrivateRoute from "./PrivateRoute";
 import AddFood from "../Pages/AddFood";
+import MyFoods from "../Pages/MyFoods";
+import AllFoods from "../Pages/AllFoods";
 
 const router = createBrowserRouter([
   {
@@ -17,7 +19,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/all-foods",
-        element: <h2>All Foods</h2>,
+        element: <AllFoods></AllFoods>,
       },
       {
         path: "/gallery",
@@ -31,9 +33,21 @@ const router = createBrowserRouter([
         path: "/my-foods",
         element: (
           <PrivateRoute>
-            <h2>my-foods</h2>
+            <MyFoods></MyFoods>
           </PrivateRoute>
         ),
+      },
+      {
+        path: "/update-food/:id",
+        element: (
+          <PrivateRoute>
+            <h2>update-food</h2>
+          </PrivateRoute>
+        ),
+        // loader: ({ params }) =>
+        //   fetch(
+        //     `https://assignment-10-server-ab.vercel.app/equipments/${params.id}`
+        //   ),
       },
       {
         path: "/add-food",
