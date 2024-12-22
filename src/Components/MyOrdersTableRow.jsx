@@ -1,6 +1,8 @@
+import axios from "axios";
 import React from "react";
+import toast from "react-hot-toast";
 
-export default function MyOrdersTableRow({ order }) {
+export default function MyOrdersTableRow({ order, fetchAllOrders }) {
   const {
     buyerEmail,
     buyerName,
@@ -13,6 +15,21 @@ export default function MyOrdersTableRow({ order }) {
     price,
     _id,
   } = order || {};
+
+  // delete functionality
+  const handleDelete = async (id) => {
+    try {
+      const { data } = await axios.delete(
+        `${import.meta.env.VITE_API_URL}/order/${id}`
+      );
+      console.log(data);
+      toast.success("Order Deleted Successfully!!!");
+      fetchAllOrders();
+    } catch (err) {
+      console.log(err);
+      toast.error(err.message);
+    }
+  };
 
   return (
     <tr className="border-b">
@@ -30,7 +47,10 @@ export default function MyOrdersTableRow({ order }) {
         {buyingTime.toLocaleString()}
       </td>
       <td className="py-4 px-4">
-        <button className="text-red-600 hover:text-red-800 dark:text-red-400 dark:hover:text-red-300">
+        <button
+          onClick={() => handleDelete(_id)}
+          className="text-red-600 hover:text-red-800 dark:text-red-400 dark:hover:text-red-300"
+        >
           Delete
         </button>
       </td>

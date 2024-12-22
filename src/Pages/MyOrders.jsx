@@ -49,7 +49,7 @@ export default function MyOrders() {
           </thead>
           <tbody>
             {
-                orders.map(order=> <MyOrdersTableRow key={order._id} order={order}></MyOrdersTableRow>)
+                orders.map(order=> <MyOrdersTableRow key={order._id} order={order} fetchAllOrders={fetchAllOrders}></MyOrdersTableRow>)
             }
           </tbody>
         </table>
