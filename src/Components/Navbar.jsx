@@ -93,6 +93,7 @@ export default function Navbar() {
               >
                 {user.photoURL ? (
                   <img
+                  referrerPolicy="no-referrer"
                     src={user.photoURL}
                     alt="Profile"
                     className="w-8 h-8 rounded-full"
