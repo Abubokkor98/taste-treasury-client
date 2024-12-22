@@ -42,6 +42,7 @@ export default function MyOrdersTableRow({ order, fetchAllOrders }) {
       </td>
       <td className="py-4 px-4 text-gray-800 dark:text-white">{foodName}</td>
       <td className="py-4 px-4 text-gray-800 dark:text-white">${price}</td>
+      <td className="py-4 px-4 text-gray-800 dark:text-white">{orderQuantity}</td>
       <td className="py-4 px-4 text-gray-800 dark:text-white">{foodOwner}</td>
       <td className="py-4 px-4 text-gray-800 dark:text-white">
         {buyingTime.toLocaleString()}

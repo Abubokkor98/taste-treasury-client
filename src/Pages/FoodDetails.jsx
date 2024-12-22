@@ -1,6 +1,5 @@
 import React from "react";
-import toast from "react-hot-toast";
-import { Link, NavLink, useLoaderData, useNavigate } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 
 export default function FoodDetails() {
   const {
@@ -16,8 +15,14 @@ export default function FoodDetails() {
   } = useLoaderData();
 
   const navigate = useNavigate();
+
+  const handlePurchase = () => {
+    if (quantity > 0) {
+      navigate(`/purchase-food/${_id}`);
+    }
+  };
+
   return (
-   
     <div className="max-w-3xl mx-auto px-4 py-8 dark:text-white">
       <h2 className="text-3xl font-semibold text-center mb-6">Food Details</h2>
       <div className="bg-white shadow-lg rounded-lg overflow-hidden flex flex-col lg:flex-row relative dark:bg-gray-800 dark:border dark:border-gray-700">
@@ -66,18 +71,23 @@ export default function FoodDetails() {
           </div>
           <div className="mt-6">
             {/* Purchase Button */}
-            <Link to={`/purchase-food/${_id}`}>
-              <button
-                disabled={quantity === 0}
-                className={`w-full py-2 mt-4 rounded-md ${
-                  quantity > 0
-                    ? "bg-blue-600 text-white hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-400"
-                    : "bg-gray-400 text-gray-700 cursor-not-allowed"
-                }`}
-              >
-                {quantity > 0 ? "Purchase" : "Out of Stock"}
-              </button>
-            </Link>
+            <button
+              onClick={handlePurchase}
+              disabled={quantity === 0}
+              className={`w-full py-2 mt-4 rounded-md ${
+                quantity > 0
+                  ? "bg-blue-600 text-white hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-400"
+                  : "bg-gray-400 text-gray-700 cursor-not-allowed"
+              }`}
+            >
+              {quantity > 0 ? "Purchase" : "Out of Stock"}
+            </button>
+            {/* Show message when item is out of stock */}
+            {Number(quantity) === 0 && (
+              <p className="text-red-600 mt-4 text-center">
+                Sorry, this item is out of stock and cannot be purchased.
+              </p>
+            )}
           </div>
         </div>
       </div>

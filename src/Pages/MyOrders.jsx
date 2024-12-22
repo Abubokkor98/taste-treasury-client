@@ -37,6 +37,9 @@ export default function MyOrders() {
                 Price
               </th>
               <th className="py-2 px-4 text-left text-gray-700 dark:text-gray-200 border-b">
+                Quantity
+              </th>
+              <th className="py-2 px-4 text-left text-gray-700 dark:text-gray-200 border-b">
                 Food Owner
               </th>
               <th className="py-2 px-4 text-left text-gray-700 dark:text-gray-200 border-b">
