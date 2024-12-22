@@ -1,9 +1,12 @@
 import { useContext, useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
+import toast from "react-hot-toast";
+import axios from "axios";
 
 export default function FoodPurchase() {
   const { user } = useContext(AuthContext);
+  const navigate = useNavigate();
   const [buyingDate, setBuyingDate] = useState(new Date());
   const {
     foodName,
@@ -18,21 +21,46 @@ export default function FoodPurchase() {
     addedBy,
   } = useLoaderData();
 
-  const handlePurchase = (e) => {
+  const handlePurchase = async (e) => {
     e.preventDefault();
     const form = e.target;
-    const quantity = form.quantity.value;
+    const orderQuantity = form.quantity.value;
 
     const order = {
       foodName: foodName,
       foodImage: foodImage,
-      quantity,
+      orderQuantity,
       foodOwner: addedBy?.email,
+      foodId: _id,
       buyerName: user?.displayName,
       buyerEmail: user?.email,
       buyingTime: buyingDate,
     };
     console.log(order);
+
+    // 1. Check order permissions validation
+    if (user?.email === addedBy?.email)
+      return toast.error(`You can't buy own food!`);
+    // 2. quantity validation
+    if (orderQuantity > quantity)
+      return toast.error(`You can't purchase more than available quantity!`);
+
+    try {
+      // 1. make a post request
+      const { data } = await axios.post(
+        `${import.meta.env.VITE_API_URL}/add-order`,
+        order
+      );
+      // 2. Reset form
+      // form.reset()
+      // 3. Show toast and navigate
+      toast.success("Bid Successful!!!");
+      console.log(data);
+      navigate("/my-orders");
+    } catch (err) {
+      console.log(err);
+      toast.error(err?.response?.data);
+    }
   };
 
   return (
@@ -96,7 +124,7 @@ export default function FoodPurchase() {
               </div>
 
               {/* Buying Date */}
-              <div className="mb-4">
+              {/* <div className="mb-4">
                 <label className="block text-gray-700 dark:text-gray-300">
                   Buying Date
                 </label>
@@ -106,7 +134,7 @@ export default function FoodPurchase() {
                   readOnly
                   className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
                 />
-              </div>
+              </div> */}
 
               {/* Purchase Button */}
               <button
