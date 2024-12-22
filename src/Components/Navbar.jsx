@@ -2,9 +2,10 @@ import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 import { FaBars, FaTimes, FaUserCircle } from "react-icons/fa";
+import toast from "react-hot-toast";
 
 export default function Navbar() {
-  const { user, logoutUser } = useContext(AuthContext);
+  const { user, logoutUser, setUser } = useContext(AuthContext);
 
   const [isDropdownOpen, setDropdownOpen] = useState(false);
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -19,7 +20,16 @@ export default function Navbar() {
     document.body.classList.toggle("dark", isDarkMode);
   };
 
-  const handleLogout = () => logoutUser();
+  const handleLogout = () => {
+    logoutUser()
+      .then(() => {
+        setUser(null);
+        toast.error("User Logged out");
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
 
   return (
     <nav className="bg-white dark:bg-gray-800 p-4 shadow-md">
