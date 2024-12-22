@@ -7,6 +7,7 @@ import PrivateRoute from "./PrivateRoute";
 import AddFood from "../Pages/AddFood";
 import MyFoods from "../Pages/MyFoods";
 import AllFoods from "../Pages/AllFoods";
+import FoodDetails from "../Pages/FoodDetails";
 
 const router = createBrowserRouter([
   {
@@ -27,7 +28,15 @@ const router = createBrowserRouter([
       },
       {
         path: "/food/:id",
-        element: <h2>single food page</h2>,
+        element: <FoodDetails></FoodDetails>,
+        loader: async ({ params }) => {
+          const res = await fetch(
+            `${import.meta.env.VITE_API_URL}/foods`
+          );
+          const foods = await res.json();
+          const food = foods.find((f) => f._id == params.id);
+          return food;
+        },
       },
       {
         path: "/my-foods",
