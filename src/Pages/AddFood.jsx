@@ -1,11 +1,15 @@
 import { useContext } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
+import toast from "react-hot-toast";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export default function AddFood() {
   const { user } = useContext(AuthContext);
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const navigate = useNavigate();
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     const form = new FormData(e.target);
     const foodName = form.get("name");
     const foodImage = form.get("image");
@@ -27,9 +31,20 @@ export default function AddFood() {
       },
       foodOrigin,
       description,
+      purchaseCount: 0,
     };
-
-    console.log(newFood);
+    try {
+      // 1. make a post request
+      await axios.post(`${import.meta.env.VITE_API_URL}/add-food`, newFood);
+      // 2. Reset form
+      e.target.reset();
+      // 3. Show toast and navigate
+      toast.success("Food Added Successfully!!!");
+      // navigate('/my-foods')
+    } catch (err) {
+      console.log(err);
+      toast.error(err.message);
+    }
   };
 
   return (
