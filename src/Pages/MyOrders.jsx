@@ -2,17 +2,17 @@ import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import axios from "axios";
 import MyOrdersTableRow from "../Components/MyOrdersTableRow";
+import useAxiosSecure from "../customHooks/useAxiosSecure";
 
 export default function MyOrders() {
+  const AxiosSecure = useAxiosSecure();
   const { user } = useContext(AuthContext);
   const [orders, setOrders] = useState([]);
   useEffect(() => {
     fetchAllOrders();
   }, [user]);
   const fetchAllOrders = async () => {
-    const { data } = await axios.get(
-      `${import.meta.env.VITE_API_URL}/orders/${user?.email}`
-    );
+    const { data } = await AxiosSecure.get(`/orders/${user?.email}`);
     setOrders(data);
   };
   console.log(orders);
@@ -51,9 +51,13 @@ export default function MyOrders() {
             </tr>
           </thead>
           <tbody>
-            {
-                orders.map(order=> <MyOrdersTableRow key={order._id} order={order} fetchAllOrders={fetchAllOrders}></MyOrdersTableRow>)
-            }
+            {orders.map((order) => (
+              <MyOrdersTableRow
+                key={order._id}
+                order={order}
+                fetchAllOrders={fetchAllOrders}
+              ></MyOrdersTableRow>
+            ))}
           </tbody>
         </table>
       </div>

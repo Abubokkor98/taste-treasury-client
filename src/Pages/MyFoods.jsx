@@ -4,16 +4,18 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 import axios from "axios";
 import MyFoodTableRow from "../Components/MyFoodTableRow";
+import useAxiosSecure from "../customHooks/useAxiosSecure";
 
 export default function MyFoods() {
+  const AxiosSecure = useAxiosSecure();
   const { user } = useContext(AuthContext);
   const [foods, setFoods] = useState([]);
   useEffect(() => {
     fetchAllFoods();
   }, [user]);
   const fetchAllFoods = async () => {
-    const { data } = await axios.get(
-      `${import.meta.env.VITE_API_URL}/foods/${user?.email}`
+    const { data } = await AxiosSecure.get(`/foods/${user?.email}`,{ withCredentials: true }
+      // 
     );
     setFoods(data);
   };

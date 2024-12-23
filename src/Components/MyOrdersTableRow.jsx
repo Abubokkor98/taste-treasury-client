@@ -1,8 +1,11 @@
 import axios from "axios";
 import React from "react";
 import toast from "react-hot-toast";
+import useAxiosSecure from "../customHooks/useAxiosSecure";
 
 export default function MyOrdersTableRow({ order, fetchAllOrders }) {
+  const AxiosSecure = useAxiosSecure();
+
   const {
     buyerEmail,
     buyerName,
@@ -19,8 +22,8 @@ export default function MyOrdersTableRow({ order, fetchAllOrders }) {
   // delete functionality
   const handleDelete = async (id) => {
     try {
-      const { data } = await axios.delete(
-        `${import.meta.env.VITE_API_URL}/order/${id}`
+      const { data } = await AxiosSecure.delete(
+        `/order/${id}`
       );
       console.log(data);
       toast.success("Order Deleted Successfully!!!");
