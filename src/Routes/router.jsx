@@ -10,6 +10,7 @@ import AllFoods from "../Pages/AllFoods";
 import FoodDetails from "../Pages/FoodDetails";
 import FoodPurchase from "../Pages/FoodPurchase";
 import MyOrders from "../Pages/MyOrders";
+import UpdateFood from "../Pages/UpdateFood";
 
 const router = createBrowserRouter([
   {
@@ -56,13 +57,11 @@ const router = createBrowserRouter([
         path: "/update-food/:id",
         element: (
           <PrivateRoute>
-            <h2>update-food</h2>
+            <UpdateFood></UpdateFood>
           </PrivateRoute>
         ),
-        // loader: ({ params }) =>
-        //   fetch(
-        //     `https://assignment-10-server-ab.vercel.app/equipments/${params.id}`
-        //   ),
+        loader: ({ params }) =>
+          fetch(`${import.meta.env.VITE_API_URL}/food/${params.id}`),
       },
       {
         path: "/add-food",

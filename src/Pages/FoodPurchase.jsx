@@ -55,7 +55,7 @@ export default function FoodPurchase() {
       // 2. Reset form
       // form.reset()
       // 3. Show toast and navigate
-      toast.success("Bid Successful!!!");
+      toast.success("Order Successful!!!");
       console.log(data);
       navigate("/my-orders");
     } catch (err) {
