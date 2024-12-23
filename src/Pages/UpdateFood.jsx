@@ -26,7 +26,7 @@ export default function UpdateFood() {
     const foodName = form.get("name");
     const foodImage = form.get("image");
     const foodCategory = form.get("category");
-    const quantity = form.get("quantity");
+    const quantity = parseInt(form.get("quantity"));
     const price = form.get("price");
     const foodOrigin = form.get("origin");
     const description = form.get("description");

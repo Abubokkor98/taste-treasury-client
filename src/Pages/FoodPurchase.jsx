@@ -24,7 +24,7 @@ export default function FoodPurchase() {
   const handlePurchase = async (e) => {
     e.preventDefault();
     const form = e.target;
-    const orderQuantity = form.quantity.value;
+    const orderQuantity = parseInt(form.quantity.value);
 
     const order = {
       foodName: foodName,
