@@ -1,5 +1,6 @@
 import React from "react";
 import { useLoaderData, useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 
 export default function FoodDetails() {
   const {
@@ -23,72 +24,82 @@ export default function FoodDetails() {
   };
 
   return (
-    <div className="max-w-3xl mx-auto px-4 py-8 dark:text-white">
-      <h2 className="text-3xl font-semibold text-center mb-6">Food Details</h2>
-      <div className="bg-white shadow-lg rounded-lg overflow-hidden flex flex-col lg:flex-row relative dark:bg-gray-800 dark:border dark:border-gray-700">
+    <div className="max-w-7xl mx-auto px-6 py-16">
+      <div className="bg-white shadow-2xl rounded-3xl overflow-hidden flex flex-col lg:flex-row transition-all duration-300 ease-in-out">
         {/* Food Image */}
-        <img
-          src={foodImage}
-          alt={foodName}
-          className="lg:max-w-sm lg:max-h-full object-cover w-full h-64 sm:h-80 lg:h-auto"
-        />
-        <div className="p-6">
-          <h3 className="text-2xl font-bold mb-2">{foodName}</h3>
-          <p className="text-gray-600 mb-4 dark:text-gray-300">{description}</p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <motion.div
+          className="relative lg:w-1/2 group"
+          whileHover={{
+            scale: 1.05,
+            boxShadow: "0px 0px 15px rgba(0, 0, 0, 0.3)",
+            transition: { duration: 0.3 },
+          }}
+        >
+          <img
+            src={foodImage}
+            alt={foodName}
+            className="w-full h-full object-cover rounded-2xl transition-all duration-300"
+          />
+          <div className="absolute top-4 right-4 text-white font-bold text-xl bg-teal-500 px-4 py-2 rounded-full shadow-lg">
+            ${price}
+          </div>
+        </motion.div>
+
+        {/* Food Details */}
+        <div className="lg:w-1/2 p-8 space-y-6 bg-white">
+          {/* Food Name */}
+          <h2 className="text-4xl font-extrabold text-gray-800 tracking-wide transition-all duration-200 hover:text-teal-500">
+            {foodName}
+          </h2>
+          {/* Description */}
+          <p className="text-lg text-gray-700">{description}</p>
+
+          {/* Details Grid */}
+          <div className="grid grid-cols-2 gap-8 mt-4">
             <div>
-              <p className="text-sm font-semibold text-gray-500">Category</p>
-              <p className="text-base text-gray-700 dark:text-gray-300">
-                {foodCategory}
-              </p>
+              <p className="text-sm font-medium text-teal-500">Category</p>
+              <p className="text-xl font-semibold text-gray-800">{foodCategory}</p>
             </div>
             <div>
-              <p className="text-sm font-semibold text-gray-500">Price</p>
-              <p className="text-base text-gray-700 dark:text-gray-300">
-                ${price}
-              </p>
+              <p className="text-sm font-medium text-teal-500">Origin</p>
+              <p className="text-xl font-semibold text-gray-800">{foodOrigin}</p>
             </div>
             <div>
-              <p className="text-sm font-semibold text-gray-500">Origin</p>
-              <p className="text-base text-gray-700 dark:text-gray-300">
-                {foodOrigin}
-              </p>
+              <p className="text-sm font-medium text-teal-500">Quantity</p>
+              <p className="text-xl font-semibold text-gray-800">{quantity}</p>
             </div>
             <div>
-              <p className="text-sm font-semibold text-gray-500">Quantity</p>
-              <p className="text-base text-gray-700 dark:text-gray-300">
-                {quantity}
-              </p>
-            </div>
-            <div>
-              <p className="text-sm font-semibold text-gray-500">
-                Purchase Count
-              </p>
-              <p className="text-base text-gray-700 dark:text-gray-300">
-                {purchaseCount}
-              </p>
+              <p className="text-sm font-medium text-teal-500">Purchase Count</p>
+              <p className="text-xl font-semibold text-gray-800">{purchaseCount}</p>
             </div>
           </div>
-          <div className="mt-6">
-            {/* Purchase Button */}
+
+          {/* Purchase Button with hover animation */}
+          <motion.div
+            whileHover={{
+              scale: 1.05,
+              backgroundColor: "#2b6cb0",
+              transition: { duration: 0.3 },
+            }}
+          >
             <button
               onClick={handlePurchase}
               disabled={quantity === 0}
-              className={`w-full py-2 mt-4 rounded-md ${
+              className={`w-full py-4 text-lg font-bold rounded-lg transition-all duration-300 ${
                 quantity > 0
-                  ? "bg-blue-600 text-white hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-400"
+                  ? "bg-teal-600 text-white hover:bg-teal-700"
                   : "bg-gray-400 text-gray-700 cursor-not-allowed"
               }`}
             >
-              {quantity > 0 ? "Purchase" : "Out of Stock"}
+              {quantity > 0 ? "Purchase Now" : "Out of Stock"}
             </button>
-            {/* Show message when item is out of stock */}
-            {Number(quantity) === 0 && (
-              <p className="text-red-600 mt-4 text-center">
-                Sorry, this item is out of stock and cannot be purchased.
-              </p>
-            )}
-          </div>
+          </motion.div>
+
+          {quantity === 0 && (
+            <p className="text-red-600 text-center mt-4">
+              Sorry, this item is out of stock.
+            </p>
+          )}
         </div>
       </div>
     </div>

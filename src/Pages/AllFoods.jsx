@@ -34,7 +34,7 @@ export default function AllFoods() {
       </div>
 
       {/* Food Cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 w-full">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 w-full">
         {foods.map((food) => (
           <AllFoodsCard key={food._id} food={food}></AllFoodsCard>
         ))}
