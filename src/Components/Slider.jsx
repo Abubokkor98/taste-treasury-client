@@ -41,15 +41,14 @@ export default function Slider() {
             <div className="hero-overlay bg-opacity-60 dark:bg-opacity-70"></div>
             <div className="hero-content text-neutral-content text-center ">
               <div className="max-w-md">
-                <h1 className="mb-5 text-4xl md:text-5xl font-bold dark:text-white">
+                <h1 className="mb-5 text-4xl md:text-5xl font-bold text-teal-600 dark:text-teal-400">
                   Welcome to Taste Treasury
                 </h1>
                 <p className="mb-5 dark:text-gray-300">
-                  Discover a world of flavors! Explore our curated selection of
-                  delectable dishes and satisfy your cravings.
+                  Discover a world of flavors! Explore our curated selection of delectable dishes and satisfy your cravings.
                 </p>
                 <Link to={"/all-foods"}>
-                  <button className="bg-white text-green-500 px-6 py-3 rounded-md font-medium text-lg hover:bg-gray-100 transition">
+                  <button className="bg-teal-600 text-white px-6 py-3 rounded-md font-medium text-lg hover:bg-teal-700 transition">
                     Explore All Foods
                   </button>
                 </Link>
@@ -67,16 +66,15 @@ export default function Slider() {
             <div className="hero-overlay bg-opacity-60 dark:bg-opacity-70"></div>
             <div className="hero-content text-neutral-content text-center">
               <div className="max-w-md">
-                <h1 className="mb-5 text-4xl md:text-5xl font-bold dark:text-white">
+                <h1 className="mb-5 text-4xl md:text-5xl font-bold text-blue-600 dark:text-blue-400">
                   Savor Every Bite
                 </h1>
                 <p className="mb-5 dark:text-gray-300">
-                  From hearty meals to tempting treats, Taste Treasury has it
-                  all. Let the feast begin!
+                  From hearty meals to tempting treats, Taste Treasury has it all. Let the feast begin!
                 </p>
                 <Link
                   to="/all-foods"
-                  className="bg-green-600 text-white px-6 py-3 rounded-md hover:bg-green-700"
+                  className="bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 transition"
                 >
                   Explore Now
                 </Link>
@@ -94,16 +92,15 @@ export default function Slider() {
             <div className="hero-overlay bg-opacity-60 dark:bg-opacity-70"></div>
             <div className="hero-content text-neutral-content text-center">
               <div className="max-w-md">
-                <h1 className="mb-5 text-4xl md:text-5xl font-bold dark:text-white">
+                <h1 className="mb-5 text-4xl md:text-5xl font-bold text-red-600 dark:text-red-400">
                   Flavors Beyond Borders
                 </h1>
                 <p className="mb-5 dark:text-gray-300">
-                  Uncover unique recipes and irresistible cuisines from across
-                  the globe. Taste the world today!
+                  Uncover unique recipes and irresistible cuisines from across the globe. Taste the world today!
                 </p>
                 <Link
                   to="/all-foods"
-                  className="bg-red-600 text-white px-6 py-3 rounded-md hover:bg-red-700"
+                  className="bg-red-600 text-white px-6 py-3 rounded-md hover:bg-red-700 transition"
                 >
                   View All Foods
                 </Link>

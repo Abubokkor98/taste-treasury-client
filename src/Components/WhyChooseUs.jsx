@@ -1,61 +1,84 @@
 import React from 'react';
-import { FaThumbsUp, FaClock, FaSeedling, FaHeadset } from 'react-icons/fa';
+import { FaThumbsUp, FaClock, FaSeedling, FaHeadset, FaShippingFast, FaAward } from 'react-icons/fa';
+
+const features = [
+  {
+    id: 1,
+    icon: <FaSeedling className="text-teal-600 text-4xl" />,
+    title: "Fresh Ingredients",
+    description: "We only use farm-fresh ingredients to ensure the best flavors in every bite.",
+  },
+  {
+    id: 2,
+    icon: <FaClock className="text-blue-600 text-4xl" />,
+    title: "Fast Service",
+    description: "Lightning-fast delivery and prompt service to satisfy your cravings on time.",
+  },
+  {
+    id: 3,
+    icon: <FaThumbsUp className="text-yellow-600 text-4xl" />,
+    title: "Trusted by Thousands",
+    description: "A loyal customer base that loves and trusts our quality.",
+  },
+  {
+    id: 4,
+    icon: <FaHeadset className="text-red-600 text-4xl" />,
+    title: "24/7 Customer Support",
+    description: "Our support team is here round-the-clock to assist you.",
+  },
+  {
+    id: 5,
+    icon: <FaShippingFast className="text-purple-600 text-4xl" />,
+    title: "Free Shipping",
+    description: "Enjoy free shipping on all your favorite meals, anytime.",
+  },
+  {
+    id: 6,
+    icon: <FaAward className="text-orange-600 text-4xl" />,
+    title: "Award-Winning Service",
+    description: "Recognized for our excellence in quality and customer satisfaction.",
+  },
+];
 
 export default function WhyChooseUs() {
   return (
-    <div className="bg-gray-50 dark:bg-gray-800 py-12">
-      <div className="max-w-6xl mx-auto text-center">
-        <h2 className="text-3xl font-semibold text-gray-800 dark:text-white mb-6">
-          Why Choose Us
-        </h2>
-        <p className="text-gray-600 dark:text-gray-300 mb-12">
-          At Taste Treasury, we prioritize quality, trust, and convenience to ensure a delightful experience for every food lover.
-        </p>
+    <div className="bg-gray-50 dark:bg-gray-900 py-16">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        {/* Section Header */}
+        <div className="text-center mb-12">
+          <h2 className="text-4xl font-extrabold text-gray-800 dark:text-white">
+            Why Choose <span className="text-blue-600">Taste Treasury</span>?
+          </h2>
+          <p className="mt-4 text-gray-600 dark:text-gray-400">
+            We are committed to delivering the best food experience with unmatched quality, speed, and customer care.
+          </p>
+        </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {/* Quality Ingredients */}
-          <div className="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg">
-            <FaSeedling className="text-green-600 text-4xl mx-auto mb-4" />
-            <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-2">
-              Fresh Ingredients
-            </h3>
-            <p className="text-gray-600 dark:text-gray-300">
-              We ensure the freshest and finest ingredients in every dish.
-            </p>
-          </div>
-
-          {/* Convenience */}
-          <div className="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg">
-            <FaClock className="text-blue-600 text-4xl mx-auto mb-4" />
-            <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-2">
-              Fast Service
-            </h3>
-            <p className="text-gray-600 dark:text-gray-300">
-              Quick and seamless service for a hassle-free experience.
-            </p>
-          </div>
-
-          {/* Customer Trust */}
-          <div className="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg">
-            <FaThumbsUp className="text-yellow-600 text-4xl mx-auto mb-4" />
-            <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-2">
-              Trusted by Many
-            </h3>
-            <p className="text-gray-600 dark:text-gray-300">
-              Loved and trusted by thousands of happy customers.
-            </p>
-          </div>
-
-          {/* 24/7 Support */}
-          <div className="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg">
-            <FaHeadset className="text-red-600 text-4xl mx-auto mb-4" />
-            <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-2">
-              24/7 Support
-            </h3>
-            <p className="text-gray-600 dark:text-gray-300">
-              Always here to assist you with our dedicated support team.
-            </p>
-          </div>
+        {/* Features Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {features.map((feature) => (
+            <div
+              key={feature.id}
+              className="flex items-center bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg"
+            >
+              <div className={`p-4 rounded-full ${feature.id === 1 ? 'bg-teal-100 dark:bg-teal-600' : 
+                              feature.id === 2 ? 'bg-blue-100 dark:bg-blue-600' : 
+                              feature.id === 3 ? 'bg-yellow-100 dark:bg-yellow-600' : 
+                              feature.id === 4 ? 'bg-red-100 dark:bg-red-600' : 
+                              feature.id === 5 ? 'bg-purple-100 dark:bg-purple-600' : 
+                              'bg-orange-100 dark:bg-orange-600'}`}>
+                {feature.icon}
+              </div>
+              <div className="ml-6">
+                <h3 className="text-xl font-semibold text-gray-800 dark:text-white">
+                  {feature.title}
+                </h3>
+                <p className="mt-2 text-gray-600 dark:text-gray-300">
+                  {feature.description}
+                </p>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </div>

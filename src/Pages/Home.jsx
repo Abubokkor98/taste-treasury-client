@@ -7,12 +7,11 @@ import TopFoods from "../Components/TopFoods";
 export default function Home() {
   return (
     <div>
-      <h2>home</h2>
-      {/* <Slider></Slider>
-    
-      <CustomerReview></CustomerReview>
-      <WhyChooseUs></WhyChooseUs> */}
+      <Slider></Slider>
       <TopFoods></TopFoods>
+
+      <CustomerReview></CustomerReview>
+      <WhyChooseUs></WhyChooseUs>
     </div>
   );
 }

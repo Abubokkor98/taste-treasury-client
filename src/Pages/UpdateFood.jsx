@@ -66,14 +66,17 @@ export default function UpdateFood() {
 
   return (
     <div className="max-w-3xl mx-auto px-4 py-8 dark:text-white">
-      <h2 className="text-3xl font-semibold text-center mb-6">Update Food</h2>
+      <h2 className="text-3xl font-semibold text-center mb-6 text-teal-600 dark:text-teal-400">
+        Update Food
+      </h2>
       <form
         onSubmit={handleUpdate}
-        className="bg-white shadow-lg rounded-lg p-6 dark:bg-gray-800 dark:border dark:border-gray-700"
+        className="bg-white shadow-lg rounded-lg p-6 dark:bg-gray-800 dark:border dark:border-gray-700 space-y-6"
       >
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {/* Food Name */}
           <div>
-            <label className="block text-sm font-medium mb-2 dark:text-gray-300">
+            <label className="block text-sm font-medium text-teal-700 dark:text-teal-300 mb-2">
               Food Name
             </label>
             <input
@@ -81,21 +84,25 @@ export default function UpdateFood() {
               name="name"
               defaultValue={foodName}
               required
-              className="w-full px-3 py-2 border rounded-md dark:bg-gray-900 dark:border-gray-700 dark:text-gray-300"
+              className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 dark:bg-gray-900 dark:border-gray-700 dark:text-gray-300"
               placeholder="Enter food name"
             />
           </div>
-          <div className="">
-            <label className="block text-gray-700 dark:text-gray-300">
+
+          {/* Food Category */}
+          <div>
+            <label className="block text-sm font-medium text-teal-700 dark:text-teal-300 mb-2">
               Food Category
             </label>
             <select
               name="category"
               defaultValue={foodCategory}
-              className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
               required
+              className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 dark:bg-gray-900 dark:border-gray-700 dark:text-gray-300"
             >
-              <option value="">Select category</option>
+              <option value="" className="text-gray-500">
+                Select category
+              </option>
               <option value="vegetarian">Vegetarian</option>
               <option value="non-vegetarian">Non-Vegetarian</option>
               <option value="vegan">Vegan</option>
@@ -106,8 +113,10 @@ export default function UpdateFood() {
               <option value="breakfast">Breakfast</option>
             </select>
           </div>
+
+          {/* Price */}
           <div>
-            <label className="block text-sm font-medium mb-2 dark:text-gray-300">
+            <label className="block text-sm font-medium text-teal-700 dark:text-teal-300 mb-2">
               Price
             </label>
             <input
@@ -115,12 +124,14 @@ export default function UpdateFood() {
               name="price"
               defaultValue={price}
               required
-              className="w-full px-3 py-2 border rounded-md dark:bg-gray-900 dark:border-gray-700 dark:text-gray-300"
+              className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 dark:bg-gray-900 dark:border-gray-700 dark:text-gray-300"
               placeholder="Enter price"
             />
           </div>
+
+          {/* Origin */}
           <div>
-            <label className="block text-sm font-medium mb-2 dark:text-gray-300">
+            <label className="block text-sm font-medium text-teal-700 dark:text-teal-300 mb-2">
               Origin
             </label>
             <input
@@ -128,12 +139,14 @@ export default function UpdateFood() {
               name="origin"
               defaultValue={foodOrigin}
               required
-              className="w-full px-3 py-2 border rounded-md dark:bg-gray-900 dark:border-gray-700 dark:text-gray-300"
+              className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 dark:bg-gray-900 dark:border-gray-700 dark:text-gray-300"
               placeholder="Enter origin"
             />
           </div>
+
+          {/* Quantity */}
           <div>
-            <label className="block text-sm font-medium mb-2 dark:text-gray-300">
+            <label className="block text-sm font-medium text-teal-700 dark:text-teal-300 mb-2">
               Quantity
             </label>
             <input
@@ -141,12 +154,14 @@ export default function UpdateFood() {
               name="quantity"
               defaultValue={quantity}
               required
-              className="w-full px-3 py-2 border rounded-md dark:bg-gray-900 dark:border-gray-700 dark:text-gray-300"
+              className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 dark:bg-gray-900 dark:border-gray-700 dark:text-gray-300"
               placeholder="Enter quantity"
             />
           </div>
+
+          {/* Food Image URL */}
           <div>
-            <label className="block text-sm font-medium mb-2 dark:text-gray-300">
+            <label className="block text-sm font-medium text-teal-700 dark:text-teal-300 mb-2">
               Food Image URL
             </label>
             <input
@@ -154,13 +169,15 @@ export default function UpdateFood() {
               name="image"
               defaultValue={foodImage}
               required
-              className="w-full px-3 py-2 border rounded-md dark:bg-gray-900 dark:border-gray-700 dark:text-gray-300"
+              className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 dark:bg-gray-900 dark:border-gray-700 dark:text-gray-300"
               placeholder="Enter image URL"
             />
           </div>
         </div>
-        <div className="mt-4">
-          <label className="block text-sm font-medium mb-2 dark:text-gray-300">
+
+        {/* Description */}
+        <div>
+          <label className="block text-sm font-medium text-teal-700 dark:text-teal-300 mb-2">
             Description
           </label>
           <textarea
@@ -168,13 +185,15 @@ export default function UpdateFood() {
             defaultValue={description}
             required
             rows="4"
-            className="w-full px-3 py-2 border rounded-md dark:bg-gray-900 dark:border-gray-700 dark:text-gray-300"
+            className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 dark:bg-gray-900 dark:border-gray-700 dark:text-gray-300"
             placeholder="Enter description"
           ></textarea>
         </div>
+
+        {/* Update Button */}
         <button
           type="submit"
-          className="w-full py-2 mt-6 bg-blue-600 text-white font-semibold rounded-md hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-400"
+          className="w-full py-3 bg-teal-600 text-white font-semibold rounded-md shadow-md hover:bg-teal-700 dark:bg-teal-500 dark:hover:bg-teal-400 focus:outline-none focus:ring-2 focus:ring-teal-500 transition-all"
         >
           Update Food
         </button>

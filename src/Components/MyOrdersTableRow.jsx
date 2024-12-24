@@ -2,6 +2,7 @@ import axios from "axios";
 import React from "react";
 import toast from "react-hot-toast";
 import useAxiosSecure from "../customHooks/useAxiosSecure";
+import { FiTrash2 } from "react-icons/fi";
 
 export default function MyOrdersTableRow({ order, fetchAllOrders }) {
   const AxiosSecure = useAxiosSecure();
@@ -15,16 +16,15 @@ export default function MyOrdersTableRow({ order, fetchAllOrders }) {
     foodName,
     foodOwner,
     orderQuantity,
-    price,
+    totalPrice,
     _id,
   } = order || {};
+  console.log(totalPrice, orderQuantity);
 
   // delete functionality
   const handleDelete = async (id) => {
     try {
-      const { data } = await AxiosSecure.delete(
-        `/order/${id}`
-      );
+      const { data } = await AxiosSecure.delete(`/order/${id}`);
       console.log(data);
       toast.success("Order Deleted Successfully!!!");
       fetchAllOrders();
@@ -35,27 +35,35 @@ export default function MyOrdersTableRow({ order, fetchAllOrders }) {
   };
 
   return (
-    <tr className="border-b">
-      <td className="py-4 px-4">
+    <tr className="transition duration-300 ease-in-out transform hover:bg-teal-50">
+      <td className=" py-4 px-6">
         <img
           src={foodImage}
           alt={foodName}
-          className="w-16 h-16 object-cover rounded-md"
+          className="w-16 h-16 object-cover rounded-lg shadow-md transition-transform transform hover:scale-110"
         />
       </td>
-      <td className="py-4 px-4 text-gray-800 dark:text-white">{foodName}</td>
-      <td className="py-4 px-4 text-gray-800 dark:text-white">${price}</td>
-      <td className="py-4 px-4 text-gray-800 dark:text-white">{orderQuantity}</td>
-      <td className="py-4 px-4 text-gray-800 dark:text-white">{foodOwner}</td>
-      <td className="py-4 px-4 text-gray-800 dark:text-white">
-        {buyingTime.toLocaleString()}
+      <td className="py-4 px-6 text-gray-800 dark:text-white text-lg font-medium">
+        {foodName}
       </td>
-      <td className="py-4 px-4">
+      <td className="py-4 px-6 text-teal-600 dark:text-teal-400 text-lg font-semibold">
+        ${totalPrice}
+      </td>
+      <td className="py-4 px-6 text-gray-800 dark:text-white text-lg font-medium">
+        {orderQuantity}
+      </td>
+      <td className="py-4 px-6 text-gray-600 dark:text-gray-400 text-lg font-medium">
+        {foodOwner}
+      </td>
+      <td className="py-4 px-6 text-gray-500 dark:text-gray-300 text-lg">
+        {buyingTime}
+      </td>
+      <td className="py-4 px-6 text-center">
         <button
           onClick={() => handleDelete(_id)}
-          className="text-red-600 hover:text-red-800 dark:text-red-400 dark:hover:text-red-300"
+          className="bg-red-500 text-white rounded-lg px-4 py-2 font-medium text-sm transition-all hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-400"
         >
-          Delete
+          <FiTrash2 />
         </button>
       </td>
     </tr>
