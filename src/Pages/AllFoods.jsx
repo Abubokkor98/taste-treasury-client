@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import AllFoodsCard from "../Components/AllFoodsCard";
 import titleBackground from "../assets/allFoodTitle.jpg";
 import PageTitle from "../utilities/PageTitle";
+import { Helmet } from "react-helmet-async";
 
 export default function AllFoods() {
   const [foods, setFoods] = useState([]);
@@ -21,6 +22,10 @@ export default function AllFoods() {
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-800 flex flex-col items-center p-6">
+      <Helmet>
+        <title>All Foods | Taste Treasury</title>
+      </Helmet>
+      {/* call pageTitle component */}
       <PageTitle title={"All Foods"} image={titleBackground}></PageTitle>
 
       {/* Search Bar */}

@@ -5,6 +5,7 @@ import { AuthContext } from "../Provider/AuthProvider";
 import axios from "axios";
 import MyFoodTableRow from "../Components/MyFoodTableRow";
 import useAxiosSecure from "../customHooks/useAxiosSecure";
+import { Helmet } from "react-helmet-async";
 
 export default function MyFoods() {
   const AxiosSecure = useAxiosSecure();
@@ -25,6 +26,10 @@ export default function MyFoods() {
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-800 px-4 py-8">
+      <Helmet>
+        <title>My Foods | Taste Treasury</title>
+      </Helmet>
+
       <h2 className="text-3xl font-semibold text-center text-gray-800 dark:text-white mb-6">
         My Foods
       </h2>

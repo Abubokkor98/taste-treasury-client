@@ -1,6 +1,7 @@
 import React from "react";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
+import { Helmet } from "react-helmet-async";
 
 export default function FoodDetails() {
   const {
@@ -25,6 +26,9 @@ export default function FoodDetails() {
 
   return (
     <div className="max-w-7xl mx-auto px-6 py-16">
+      <Helmet>
+        <title>{foodName} | Taste Treasury</title>
+      </Helmet>
       <div className="bg-white shadow-2xl rounded-3xl overflow-hidden flex flex-col lg:flex-row transition-all duration-300 ease-in-out">
         {/* Food Image */}
         <motion.div
@@ -58,19 +62,27 @@ export default function FoodDetails() {
           <div className="grid grid-cols-2 gap-8 mt-4">
             <div>
               <p className="text-sm font-medium text-teal-500">Category</p>
-              <p className="text-xl font-semibold text-gray-800">{foodCategory}</p>
+              <p className="text-xl font-semibold text-gray-800">
+                {foodCategory}
+              </p>
             </div>
             <div>
               <p className="text-sm font-medium text-teal-500">Origin</p>
-              <p className="text-xl font-semibold text-gray-800">{foodOrigin}</p>
+              <p className="text-xl font-semibold text-gray-800">
+                {foodOrigin}
+              </p>
             </div>
             <div>
               <p className="text-sm font-medium text-teal-500">Quantity</p>
               <p className="text-xl font-semibold text-gray-800">{quantity}</p>
             </div>
             <div>
-              <p className="text-sm font-medium text-teal-500">Purchase Count</p>
-              <p className="text-xl font-semibold text-gray-800">{purchaseCount}</p>
+              <p className="text-sm font-medium text-teal-500">
+                Purchase Count
+              </p>
+              <p className="text-xl font-semibold text-gray-800">
+                {purchaseCount}
+              </p>
             </div>
           </div>
 

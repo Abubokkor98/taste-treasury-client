@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import toast from "react-hot-toast";
 import { useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
+import { FcGoogle } from "react-icons/fc";
 
 export default function GoogleLogin() {
   const { googleSignIn, setUser } = useContext(AuthContext);
@@ -22,17 +23,13 @@ export default function GoogleLogin() {
   };
 
   return (
-    <div className="">
+    <div className="w-full">
       <button
         onClick={handleGoogle}
-        className="w-full py-2 flex items-center justify-center border border-gray-300 rounded-md text-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-700"
+        className="w-full py-3 flex items-center justify-center bg-white border border-gray-300 rounded-lg shadow hover:shadow-lg hover:border-gray-400 transition duration-200 text-gray-800 dark:bg-gray-800 dark:border-gray-600 dark:text-white dark:hover:bg-gray-700 dark:hover:border-gray-500"
       >
-        <img
-          src="https://www.svgrepo.com/show/355037/google.svg"
-          alt="Google Icon"
-          className="w-5 h-5 mr-2"
-        />
-        Continue with Google
+        <FcGoogle className="w-6 h-6 mr-2" />
+        <span className="text-sm font-medium">Sign in with Google</span>
       </button>
     </div>
   );

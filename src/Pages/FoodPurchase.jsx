@@ -3,6 +3,7 @@ import { useLoaderData, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 import toast from "react-hot-toast";
 import axios from "axios";
+import { Helmet } from "react-helmet-async";
 
 export default function FoodPurchase() {
   const { user } = useContext(AuthContext);
@@ -71,86 +72,85 @@ export default function FoodPurchase() {
 
   return (
     <div className="min-h-screen bg-gray-50 flex items-center justify-center px-4 py-12">
-    <div className="max-w-4xl w-full bg-white rounded-lg shadow-lg overflow-hidden">
-      {/* Food Card Section */}
-      <div className="flex flex-col md:flex-row">
-        {/* Image Section */}
-        <div className="w-full md:w-1/2 relative">
-          <img
-            src={foodImage}
-            alt={foodName}
-            className="w-full h-64 md:h-full object-cover"
-          />
-          <span className="absolute top-4 left-4 bg-teal-600 text-white text-sm px-3 py-1 rounded-lg shadow">
-            {foodCategory}
-          </span>
-        </div>
-
-        {/* Details Section */}
-        <div className="w-full md:w-1/2 flex flex-col justify-between p-6 space-y-6">
-          {/* Food Info */}
-          <div>
-            <h1 className="text-2xl font-bold text-gray-800">{foodName}</h1>
-            <p className="text-sm text-gray-500 mt-2">
-              <strong>Origin:</strong> {foodOrigin}
-            </p>
-            <p className="text-gray-600 mt-4">{description}</p>
-          </div>
-
-          {/* Price and Quantity */}
-          <div className="flex items-center justify-between">
-            <p className="text-2xl font-bold text-teal-600">${price}</p>
-            <p className="text-sm text-gray-500">
-              <strong>Available:</strong> {quantity}
-            </p>
-          </div>
-        </div>
-      </div>
-
-      {/* Purchase Section */}
-      <div className="p-6 border-t border-gray-200">
-        <h3 className="text-xl font-semibold text-gray-800 mb-4">
-          Complete Your Purchase
-        </h3>
-        <form
-          onSubmit={handlePurchase}
-          className="mt-6 flex flex-wrap items-center gap-4"
-        >
-          {/* Quantity Selector */}
-          <div className="flex items-center">
-            <label htmlFor="quantity" className="mr-4 text-sm text-gray-600">
-              Quantity
-            </label>
-            <input
-              type="number"
-              id="quantity"
-              name="quantity"
-              min="1"
-              value={orderQuantity}
-              onChange={(e) => setOrderQuantity(parseInt(e.target.value))}
-              className="w-20 px-4 py-2 border border-gray-300 rounded-md text-center focus:ring-2 focus:ring-teal-500 focus:outline-none"
+      <Helmet>
+        <title>Buy {foodName} | Taste Treasury</title>
+      </Helmet>
+      <div className="max-w-4xl w-full bg-white rounded-lg shadow-lg overflow-hidden">
+        {/* Food Card Section */}
+        <div className="flex flex-col md:flex-row">
+          {/* Image Section */}
+          <div className="w-full md:w-1/2 relative">
+            <img
+              src={foodImage}
+              alt={foodName}
+              className="w-full h-64 md:h-full object-cover"
             />
+            <span className="absolute top-4 left-4 bg-teal-600 text-white text-sm px-3 py-1 rounded-lg shadow">
+              {foodCategory}
+            </span>
           </div>
 
-          {/* Total Price */}
-          <p className="text-lg font-medium text-gray-700">
-            Total: <span className="text-teal-600">${totalPrice}</span>
-          </p>
+          {/* Details Section */}
+          <div className="w-full md:w-1/2 flex flex-col justify-between p-6 space-y-6">
+            {/* Food Info */}
+            <div>
+              <h1 className="text-2xl font-bold text-gray-800">{foodName}</h1>
+              <p className="text-sm text-gray-500 mt-2">
+                <strong>Origin:</strong> {foodOrigin}
+              </p>
+              <p className="text-gray-600 mt-4">{description}</p>
+            </div>
 
-          {/* Purchase Button */}
-          <button
-            type="submit"
-            className="ml-auto bg-teal-600 text-white px-6 py-3 rounded-lg shadow hover:bg-teal-700 focus:ring-2 focus:ring-teal-500 focus:outline-none transition"
+            {/* Price and Quantity */}
+            <div className="flex items-center justify-between">
+              <p className="text-2xl font-bold text-teal-600">${price}</p>
+              <p className="text-sm text-gray-500">
+                <strong>Available:</strong> {quantity}
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Purchase Section */}
+        <div className="p-6 border-t border-gray-200">
+          <h3 className="text-xl font-semibold text-gray-800 mb-4">
+            Complete Your Purchase
+          </h3>
+          <form
+            onSubmit={handlePurchase}
+            className="mt-6 flex flex-wrap items-center gap-4"
           >
-            Purchase Now
-          </button>
-        </form>
+            {/* Quantity Selector */}
+            <div className="flex items-center">
+              <label htmlFor="quantity" className="mr-4 text-sm text-gray-600">
+                Quantity
+              </label>
+              <input
+                type="number"
+                id="quantity"
+                name="quantity"
+                min="1"
+                value={orderQuantity}
+                onChange={(e) => setOrderQuantity(parseInt(e.target.value))}
+                className="w-20 px-4 py-2 border border-gray-300 rounded-md text-center focus:ring-2 focus:ring-teal-500 focus:outline-none"
+              />
+            </div>
+
+            {/* Total Price */}
+            <p className="text-lg font-medium text-gray-700">
+              Total: <span className="text-teal-600">${totalPrice}</span>
+            </p>
+
+            {/* Purchase Button */}
+            <button
+              type="submit"
+              className="ml-auto bg-teal-600 text-white px-6 py-3 rounded-lg shadow hover:bg-teal-700 focus:ring-2 focus:ring-teal-500 focus:outline-none transition"
+            >
+              Purchase Now
+            </button>
+          </form>
+        </div>
       </div>
     </div>
-  </div>
-
-
-  
-
   );
 }

@@ -3,6 +3,7 @@ import { useLoaderData, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 import axios from "axios";
 import toast from "react-hot-toast";
+import { Helmet } from "react-helmet-async";
 
 export default function UpdateFood() {
   const { user } = useContext(AuthContext);
@@ -66,6 +67,9 @@ export default function UpdateFood() {
 
   return (
     <div className="max-w-3xl mx-auto px-4 py-8 dark:text-white">
+      <Helmet>
+        <title>Update Food | Taste Treasury</title>
+      </Helmet>
       <h2 className="text-3xl font-semibold text-center mb-6 text-teal-600 dark:text-teal-400">
         Update Food
       </h2>

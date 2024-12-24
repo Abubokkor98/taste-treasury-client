@@ -14,7 +14,7 @@ export default function Navbar() {
   const toggleMobileMenu = () => setMobileMenuOpen(!isMobileMenuOpen);
   const toggleTheme = () => {
     setIsDarkMode(!isDarkMode);
-    document.body.classList.toggle("dark", isDarkMode);
+    document.body.classList.toggle("dark", isDarkMode); // Toggle dark mode
   };
 
   const handleLogout = () => {
@@ -29,12 +29,12 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="bg-white dark:bg-gray-800 p-4 shadow-md">
+    <nav className="bg-teal-600 dark:bg-teal-800 text-white p-4 shadow-md">
       <div className="container mx-auto flex justify-between items-center">
         {/* Logo */}
         <NavLink
           to="/"
-          className="text-2xl font-bold text-teal-600 dark:text-teal-400"
+          className="text-2xl font-bold text-white"
         >
           Taste Treasury
         </NavLink>
@@ -42,7 +42,7 @@ export default function Navbar() {
         {/* Hamburger Icon for Mobile/Tablet */}
         <button
           onClick={toggleMobileMenu}
-          className="md:hidden text-gray-800 dark:text-white text-2xl"
+          className="md:hidden text-white text-2xl"
         >
           {isMobileMenuOpen ? <FaTimes /> : <FaBars />}
         </button>
@@ -51,14 +51,14 @@ export default function Navbar() {
         <div
           className={`${
             isMobileMenuOpen ? "block" : "hidden"
-          } md:flex md:items-center absolute md:static top-16 left-0 w-full bg-white dark:bg-gray-800 md:w-auto md:bg-transparent`}
+          } md:flex md:items-center absolute md:static top-16 left-0 w-full bg-teal-600 dark:bg-teal-800 md:w-auto md:bg-transparent`}
         >
           <NavLink
             to="/"
             className={({ isActive }) =>
               isActive
-                ? "block px-4 py-2 font-bold text-teal-600 dark:text-teal-400"
-                : "block px-4 py-2 text-gray-800 dark:text-white hover:text-teal-600 dark:hover:text-teal-400"
+                ? "block px-4 py-2 font-bold text-white bg-teal-700"
+                : "block px-4 py-2 text-gray-200 hover:bg-teal-700"
             }
           >
             Home
@@ -67,8 +67,8 @@ export default function Navbar() {
             to="/all-foods"
             className={({ isActive }) =>
               isActive
-                ? "block px-4 py-2 font-bold text-blue-600 dark:text-blue-400"
-                : "block px-4 py-2 text-gray-800 dark:text-white hover:text-blue-600 dark:hover:text-blue-400"
+                ? "block px-4 py-2 font-bold text-white bg-teal-700"
+                : "block px-4 py-2 text-gray-200 hover:bg-teal-700"
             }
           >
             All Foods
@@ -77,15 +77,15 @@ export default function Navbar() {
             to="/gallery"
             className={({ isActive }) =>
               isActive
-                ? "block px-4 py-2 font-bold text-yellow-600 dark:text-yellow-400"
-                : "block px-4 py-2 text-gray-800 dark:text-white hover:text-yellow-600 dark:hover:text-yellow-400"
+                ? "block px-4 py-2 font-bold text-white bg-teal-700"
+                : "block px-4 py-2 text-gray-200 hover:bg-teal-700"
             }
           >
             Gallery
           </NavLink>
           <button
             onClick={toggleTheme}
-            className="block px-4 py-2 text-gray-800 dark:text-white"
+            className="block px-4 py-2 text-gray-200 hover:bg-teal-700"
           >
             {isDarkMode ? "Light Mode" : "Dark Mode"}
           </button>
@@ -108,21 +108,21 @@ export default function Navbar() {
                     className="w-8 h-8 rounded-full"
                   />
                 ) : (
-                  <FaUserCircle className="text-gray-800 dark:text-white text-2xl" />
+                  <FaUserCircle className="text-white text-2xl" />
                 )}
               </button>
 
               {/* Dropdown Menu */}
               {isDropdownOpen && (
-                <div className="absolute right-0 mt-2 w-48 bg-white dark:bg-gray-700 shadow-md rounded-lg z-10">
+                <div className="absolute right-0 mt-2 w-48 bg-teal-600 dark:bg-teal-800 shadow-md rounded-lg z-10">
                   <ul className="py-2">
                     <li>
                       <NavLink
                         to="/my-foods"
                         className={({ isActive }) =>
                           isActive
-                            ? "block px-4 py-2 font-bold text-teal-600 dark:text-teal-400"
-                            : "block px-4 py-2 text-gray-800 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-600"
+                            ? "block px-4 py-2 font-bold text-white bg-teal-700"
+                            : "block px-4 py-2 text-gray-200 hover:bg-teal-700"
                         }
                       >
                         My Foods
@@ -133,8 +133,8 @@ export default function Navbar() {
                         to="/add-food"
                         className={({ isActive }) =>
                           isActive
-                            ? "block px-4 py-2 font-bold text-teal-600 dark:text-teal-400"
-                            : "block px-4 py-2 text-gray-800 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-600"
+                            ? "block px-4 py-2 font-bold text-white bg-teal-700"
+                            : "block px-4 py-2 text-gray-200 hover:bg-teal-700"
                         }
                       >
                         Add Food
@@ -145,8 +145,8 @@ export default function Navbar() {
                         to="/my-orders"
                         className={({ isActive }) =>
                           isActive
-                            ? "block px-4 py-2 font-bold text-teal-600 dark:text-teal-400"
-                            : "block px-4 py-2 text-gray-800 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-600"
+                            ? "block px-4 py-2 font-bold text-white bg-teal-700"
+                            : "block px-4 py-2 text-gray-200 hover:bg-teal-700"
                         }
                       >
                         My Orders
@@ -155,7 +155,7 @@ export default function Navbar() {
                     <li>
                       <button
                         onClick={handleLogout}
-                        className="block px-4 py-2 text-red-600 dark:text-red-400 hover:bg-gray-100 dark:hover:bg-gray-600"
+                        className="block px-4 py-2 text-red-600 hover:bg-teal-700"
                       >
                         Logout
                       </button>
@@ -170,8 +170,8 @@ export default function Navbar() {
                 to="/login"
                 className={({ isActive }) =>
                   isActive
-                    ? "block px-4 py-2 font-bold text-blue-600 dark:text-blue-400"
-                    : "block px-4 py-2 text-gray-800 dark:text-white hover:text-blue-600 dark:hover:text-blue-400"
+                    ? "block px-4 py-2 font-bold text-white bg-teal-700"
+                    : "block px-4 py-2 text-gray-200 hover:bg-teal-700"
                 }
               >
                 Login
@@ -180,8 +180,8 @@ export default function Navbar() {
                 to="/register"
                 className={({ isActive }) =>
                   isActive
-                    ? "block px-4 py-2 font-bold text-orange-600 dark:text-orange-400"
-                    : "block px-4 py-2 text-gray-800 dark:text-white hover:text-orange-600 dark:hover:text-orange-400"
+                    ? "block px-4 py-2 font-bold text-white bg-teal-700"
+                    : "block px-4 py-2 text-gray-200 hover:bg-teal-700"
                 }
               >
                 Register
