@@ -4,9 +4,12 @@ import { AuthContext } from "../Provider/AuthProvider";
 import toast from "react-hot-toast";
 import axios from "axios";
 import { Helmet } from "react-helmet-async";
+import useAxiosSecure from "../customHooks/useAxiosSecure";
 
 export default function FoodPurchase() {
   const { user } = useContext(AuthContext);
+  const AxiosSecure = useAxiosSecure();
+
   const navigate = useNavigate();
   const [buyingDate, setBuyingDate] = useState(new Date().toLocaleString());
   const [orderQuantity, setOrderQuantity] = useState(1);
@@ -54,10 +57,7 @@ export default function FoodPurchase() {
 
     try {
       // 1. make a post request
-      const { data } = await axios.post(
-        `${import.meta.env.VITE_API_URL}/add-order`,
-        order
-      );
+      const { data } = await AxiosSecure.post(`/add-order`, order);
       // 2. Reset form
       // form.reset()
       // 3. Show toast and navigate

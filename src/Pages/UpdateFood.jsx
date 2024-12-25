@@ -4,9 +4,11 @@ import { AuthContext } from "../Provider/AuthProvider";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { Helmet } from "react-helmet-async";
+import useAxiosSecure from "../customHooks/useAxiosSecure";
 
 export default function UpdateFood() {
   const { user } = useContext(AuthContext);
+  const AxiosSecure = useAxiosSecure();
   const navigate = useNavigate();
   const {
     foodName,
@@ -50,10 +52,7 @@ export default function UpdateFood() {
     // send data to the server
     try {
       // 1. make a post request
-      const { data } = await axios.put(
-        `${import.meta.env.VITE_API_URL}/food/${_id}`,
-        updatedFood
-      );
+      const { data } = await AxiosSecure.put(`/food/${_id}`, updatedFood);
       console.log(data);
       if (data.modifiedCount > 0) {
         toast.success("Food Update Successfully!!!");

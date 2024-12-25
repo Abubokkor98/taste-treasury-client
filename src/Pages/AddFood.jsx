@@ -4,9 +4,11 @@ import toast from "react-hot-toast";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import useAxiosSecure from "../customHooks/useAxiosSecure";
 
 export default function AddFood() {
   const { user } = useContext(AuthContext);
+  const AxiosSecure = useAxiosSecure();
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -36,7 +38,7 @@ export default function AddFood() {
     };
     try {
       // 1. make a post request
-      await axios.post(`${import.meta.env.VITE_API_URL}/add-food`, newFood);
+      await AxiosSecure.post(`/add-food`, newFood);
       // 2. Reset form
       e.target.reset();
       // 3. Show toast and navigate
