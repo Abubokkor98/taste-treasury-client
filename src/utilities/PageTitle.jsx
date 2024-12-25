@@ -8,7 +8,7 @@ export default function PageTitle({ title, image }) {
         backgroundImage: `url(${image})`,
       }}
     >
-      <div className="w-full h-full bg-black bg-opacity-20 flex items-center justify-center">
+      <div className="w-full h-full bg-black bg-opacity-30 flex items-center justify-center">
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white">
           {title}
         </h1>

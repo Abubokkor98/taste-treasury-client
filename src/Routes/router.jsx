@@ -12,6 +12,7 @@ import FoodPurchase from "../Pages/FoodPurchase";
 import MyOrders from "../Pages/MyOrders";
 import UpdateFood from "../Pages/UpdateFood";
 import ErrorPage from "../Pages/ErrorPage";
+import Gallery from "../Pages/Gallery";
 
 const router = createBrowserRouter([
   {
@@ -29,7 +30,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/gallery",
-        element: <h2>gallery</h2>,
+        element: <Gallery></Gallery>,
       },
       {
         path: "/food/:id",

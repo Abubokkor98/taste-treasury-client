@@ -3,20 +3,22 @@ import { NavLink } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 import { FaBars, FaTimes, FaUserCircle } from "react-icons/fa";
 import toast from "react-hot-toast";
+import { IoMoon, IoSunny } from "react-icons/io5";
 
 export default function Navbar() {
   const { user, logoutUser, setUser } = useContext(AuthContext);
   const [isDropdownOpen, setDropdownOpen] = useState(false);
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [dark, setDark] = useState(false);
 
   const toggleDropdown = () => setDropdownOpen(!isDropdownOpen);
   const toggleMobileMenu = () => setMobileMenuOpen(!isMobileMenuOpen);
-  const toggleTheme = () => {
-    setIsDarkMode(!isDarkMode);
-    document.body.classList.toggle("dark", isDarkMode); // Toggle dark mode
-  };
 
+  // handle dark mode
+  const darkModeHandler = () => {
+    setDark(!dark);
+    document.body.classList.toggle("dark");
+  };
   const handleLogout = () => {
     logoutUser()
       .then(() => {
@@ -32,10 +34,7 @@ export default function Navbar() {
     <nav className="bg-teal-600 dark:bg-teal-800 text-white p-4 shadow-md">
       <div className="container mx-auto flex justify-between items-center">
         {/* Logo */}
-        <NavLink
-          to="/"
-          className="text-2xl font-bold text-white"
-        >
+        <NavLink to="/" className="text-2xl font-bold text-white">
           Taste Treasury
         </NavLink>
 
@@ -83,11 +82,12 @@ export default function Navbar() {
           >
             Gallery
           </NavLink>
+          {/* Dark Mode Toggle */}
           <button
-            onClick={toggleTheme}
+            onClick={() => darkModeHandler()}
             className="block px-4 py-2 text-gray-200 hover:bg-teal-700"
           >
-            {isDarkMode ? "Light Mode" : "Dark Mode"}
+            {dark ? <IoSunny /> : <IoMoon />}
           </button>
 
           {/* User Profile/Menu */}

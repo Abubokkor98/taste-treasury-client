@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import AllFoodsCard from "../Components/AllFoodsCard";
-import titleBackground from "../assets/allFoodTitle.jpg";
+import titleBackground from "../assets/bg.jpg";
 import PageTitle from "../utilities/PageTitle";
 import { Helmet } from "react-helmet-async";
 import LoadingSpinner from "../Components/LoadingSpinner";
@@ -33,7 +33,7 @@ export default function AllFoods() {
         <LoadingSpinner></LoadingSpinner>
       ) : (
         <>
-          <PageTitle title={"All Foods"} image={titleBackground}></PageTitle>
+          <PageTitle title={"All Foods | Taste Treasury"} image={titleBackground}></PageTitle>
 
           {/* Search Bar */}
           <div className="mb-6 mt-10 w-full sm:w-96">
