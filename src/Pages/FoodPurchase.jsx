@@ -46,21 +46,16 @@ export default function FoodPurchase() {
     };
     console.log(order);
 
-    // 1. Check order permissions validation
     if (user?.email === addedBy?.email)
       return toast.error(`You can't buy your own food!`);
-    // 2. quantity validation
+
     if (orderQuantity > quantity)
       return toast.error(
         `You can't purchase more than the available quantity!`
       );
 
     try {
-      // 1. make a post request
       const { data } = await AxiosSecure.post(`/add-order`, order);
-      // 2. Reset form
-      // form.reset()
-      // 3. Show toast and navigate
       toast.success("Order Successful!!!");
       console.log(data);
       navigate("/my-orders");
@@ -71,11 +66,11 @@ export default function FoodPurchase() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 flex items-center justify-center px-4 py-12">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex items-center justify-center px-4 py-12">
       <Helmet>
         <title>Buy {foodName} | Taste Treasury</title>
       </Helmet>
-      <div className="max-w-4xl w-full bg-white rounded-lg shadow-lg overflow-hidden">
+      <div className="max-w-4xl w-full bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden">
         {/* Food Card Section */}
         <div className="flex flex-col md:flex-row">
           {/* Image Section */}
@@ -85,7 +80,7 @@ export default function FoodPurchase() {
               alt={foodName}
               className="w-full h-64 md:h-full object-cover"
             />
-            <span className="absolute top-4 left-4 bg-teal-600 text-white text-sm px-3 py-1 rounded-lg shadow">
+            <span className="absolute top-4 left-4 bg-teal-600 dark:bg-teal-500 text-white text-sm px-3 py-1 rounded-lg shadow">
               {foodCategory}
             </span>
           </div>
@@ -94,17 +89,23 @@ export default function FoodPurchase() {
           <div className="w-full md:w-1/2 flex flex-col justify-between p-6 space-y-6">
             {/* Food Info */}
             <div>
-              <h1 className="text-2xl font-bold text-gray-800">{foodName}</h1>
-              <p className="text-sm text-gray-500 mt-2">
+              <h1 className="text-2xl font-bold text-gray-800 dark:text-gray-100">
+                {foodName}
+              </h1>
+              <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">
                 <strong>Origin:</strong> {foodOrigin}
               </p>
-              <p className="text-gray-600 mt-4">{description}</p>
+              <p className="text-gray-600 dark:text-gray-300 mt-4">
+                {description}
+              </p>
             </div>
 
             {/* Price and Quantity */}
             <div className="flex items-center justify-between">
-              <p className="text-2xl font-bold text-teal-600">${price}</p>
-              <p className="text-sm text-gray-500">
+              <p className="text-2xl font-bold text-teal-600 dark:text-teal-400">
+                ${price}
+              </p>
+              <p className="text-sm text-gray-500 dark:text-gray-400">
                 <strong>Available:</strong> {quantity}
               </p>
             </div>
@@ -112,8 +113,8 @@ export default function FoodPurchase() {
         </div>
 
         {/* Purchase Section */}
-        <div className="p-6 border-t border-gray-200">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">
+        <div className="p-6 border-t border-gray-200 dark:border-gray-700">
+          <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-4">
             Complete Your Purchase
           </h3>
           <form
@@ -122,7 +123,10 @@ export default function FoodPurchase() {
           >
             {/* Quantity Selector */}
             <div className="flex items-center">
-              <label htmlFor="quantity" className="mr-4 text-sm text-gray-600">
+              <label
+                htmlFor="quantity"
+                className="mr-4 text-sm text-gray-600 dark:text-gray-400"
+              >
                 Quantity
               </label>
               <input
@@ -132,19 +136,19 @@ export default function FoodPurchase() {
                 min="1"
                 value={orderQuantity}
                 onChange={(e) => setOrderQuantity(parseInt(e.target.value))}
-                className="w-20 px-4 py-2 border border-gray-300 rounded-md text-center focus:ring-2 focus:ring-teal-500 focus:outline-none"
+                className="w-20 px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-md text-center focus:ring-2 focus:ring-teal-500 focus:outline-none bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
               />
             </div>
 
             {/* Total Price */}
-            <p className="text-lg font-medium text-gray-700">
-              Total: <span className="text-teal-600">${totalPrice}</span>
+            <p className="text-lg font-medium text-gray-700 dark:text-gray-300">
+              Total: <span className="text-teal-600 dark:text-teal-400">${totalPrice}</span>
             </p>
 
             {/* Purchase Button */}
             <button
               type="submit"
-              className="ml-auto bg-teal-600 text-white px-6 py-3 rounded-lg shadow hover:bg-teal-700 focus:ring-2 focus:ring-teal-500 focus:outline-none transition"
+              className="ml-auto bg-teal-600 dark:bg-teal-500 text-white px-6 py-3 rounded-lg shadow hover:bg-teal-700 dark:hover:bg-teal-600 focus:ring-2 focus:ring-teal-500 focus:outline-none transition"
             >
               Purchase Now
             </button>

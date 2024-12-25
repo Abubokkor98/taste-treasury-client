@@ -20,17 +20,14 @@ export default function MyOrdersTableRow({ order, fetchAllOrders }) {
     totalPrice,
     _id,
   } = order || {};
-  console.log(totalPrice, orderQuantity);
 
   // delete functionality
   const handleDelete = async (id) => {
     try {
       const { data } = await AxiosSecure.delete(`/order/${id}`);
-      console.log(data);
       toast.success("Order Deleted Successfully!!!");
       fetchAllOrders();
     } catch (err) {
-      console.log(err);
       toast.error(err.message);
     }
   };
@@ -45,7 +42,7 @@ export default function MyOrdersTableRow({ order, fetchAllOrders }) {
         </div>
         <div className="gap-2 flex">
           <button
-            className="bg-red-400 text-white px-3 py-1 rounded-md"
+            className="bg-blue-500 text-white px-3 py-1 rounded-md hover:bg-blue-600"
             onClick={() => {
               toast.dismiss(t.id);
               handleDelete(id);
@@ -54,7 +51,7 @@ export default function MyOrdersTableRow({ order, fetchAllOrders }) {
             Yes
           </button>
           <button
-            className="bg-green-400 text-white px-3 py-1 rounded-md"
+            className="bg-gray-400 text-white px-3 py-1 rounded-md hover:bg-gray-500"
             onClick={() => toast.dismiss(t.id)}
           >
             Cancel
@@ -65,8 +62,8 @@ export default function MyOrdersTableRow({ order, fetchAllOrders }) {
   };
 
   return (
-    <tr className="transition duration-300 ease-in-out transform hover:bg-teal-50">
-      <td className=" py-4 px-6">
+    <tr className="transition duration-300 ease-in-out transform hover:bg-gray-100 dark:hover:bg-gray-700">
+      <td className="py-4 px-6">
         <img
           src={foodImage}
           alt={foodName}
@@ -76,7 +73,7 @@ export default function MyOrdersTableRow({ order, fetchAllOrders }) {
       <td className="py-4 px-6 text-gray-800 dark:text-white text-lg font-medium">
         {foodName}
       </td>
-      <td className="py-4 px-6 text-teal-600 dark:text-teal-400 text-lg font-semibold">
+      <td className="py-4 px-6 text-blue-600 dark:text-blue-400 text-lg font-semibold">
         ${totalPrice}
       </td>
       <td className="py-4 px-6 text-gray-800 dark:text-white text-lg font-medium">
@@ -86,12 +83,12 @@ export default function MyOrdersTableRow({ order, fetchAllOrders }) {
         {foodOwner}
       </td>
       <td className="py-4 px-6 text-gray-500 dark:text-gray-300 text-lg">
-        {moment(buyingTime).format('MMMM Do YYYY,h:mm A')}
+        {moment(buyingTime).format("MMMM Do YYYY, h:mm A")}
       </td>
       <td className="py-4 px-6 text-center">
         <button
           onClick={() => modernDelete(_id)}
-          className="bg-red-500 text-white rounded-lg px-4 py-2 font-medium text-sm transition-all hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-400"
+          className="bg-blue-500 text-white rounded-lg px-4 py-2 font-medium text-sm transition-all hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-300"
         >
           <FiTrash2 />
         </button>

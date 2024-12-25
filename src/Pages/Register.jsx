@@ -49,7 +49,7 @@ export default function Register() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-teal-100 via-purple-200 to-blue-100 dark:from-teal-900 dark:via-purple-800 dark:to-blue-900 flex items-center justify-center">
+    <div className="min-h-screen bg-gradient-to-br from-teal-100 via-purple-200 to-blue-100  dark:from-gray-800 dark:via-gray-900 dark:to-black flex items-center justify-center">
       <Helmet>
         <title>Register | Taste Treasury</title>
       </Helmet>

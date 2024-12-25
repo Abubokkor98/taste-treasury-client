@@ -11,14 +11,22 @@ export default function MyOrders() {
   const { user } = useContext(AuthContext);
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
+
   useEffect(() => {
     fetchAllOrders();
   }, [user]);
+
   const fetchAllOrders = async () => {
-    const { data } = await AxiosSecure.get(`/orders/${user?.email}`);
-    setOrders(data);
-    setLoading(false);
+    try {
+      const { data } = await AxiosSecure.get(`/orders/${user?.email}`);
+      setOrders(data);
+    } catch (error) {
+      console.error("Failed to fetch orders:", error);
+    } finally {
+      setLoading(false);
+    }
   };
+
   console.log(orders);
 
   return (
@@ -28,7 +36,7 @@ export default function MyOrders() {
       </Helmet>
 
       {loading ? (
-        <LoadingSpinner></LoadingSpinner>
+        <LoadingSpinner />
       ) : (
         <>
           <h2 className="text-3xl font-semibold text-center text-gray-800 dark:text-white mb-6">
@@ -62,14 +70,12 @@ export default function MyOrders() {
               </table>
             </div>
           ) : (
-            <>
-              <div className="text-center ">
-                <h2 className="text-red-400 text-3xl font-bold">
-                  You don't ordered any foods yet! Please order some food to see
-                  your order here!!
-                </h2>
-              </div>
-            </>
+            <div className="text-center">
+              <h2 className="text-red-400 text-3xl font-bold">
+                You haven't ordered any foods yet! Please place an order to see
+                your items here!
+              </h2>
+            </div>
           )}
         </>
       )}

@@ -42,7 +42,7 @@ const Gallery = () => {
   }));
 
   return (
-    <div className="p-6 bg-gray-50">
+    <div className="p-6 bg-gray-50 dark:bg-gray-900">
       <Helmet>
         <title>Photo Gallery | Taste Treasury</title>
       </Helmet>
@@ -67,10 +67,10 @@ const Gallery = () => {
                 <img
                   src={food.foodImage}
                   alt={food.foodName}
-                  className="w-full h-56 object-cover rounded-lg shadow-md"
+                  className="w-full h-56 object-cover rounded-lg shadow-md dark:shadow-none"
                 />
                 {/* Overlay with additional information */}
-                <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center p-4 text-center text-white">
+                <div className="absolute inset-0 bg-black bg-opacity-50 dark:bg-opacity-70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center p-4 text-center text-white">
                   <h3 className="text-lg font-semibold">{food.foodName}</h3>
                   <p className="text-sm">{food.description}</p>
                   <p className="text-xs mt-2">Owner: {food.addedBy?.name}</p>

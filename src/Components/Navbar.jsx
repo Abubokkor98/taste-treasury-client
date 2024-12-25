@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 import { FaBars, FaTimes, FaUserCircle } from "react-icons/fa";
@@ -9,16 +9,21 @@ export default function Navbar() {
   const { user, logoutUser, setUser } = useContext(AuthContext);
   const [isDropdownOpen, setDropdownOpen] = useState(false);
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [dark, setDark] = useState(false);
+  const [dark, setDark] = useState(() => localStorage.getItem("dark") === "true");
+
+  useEffect(() => {
+    if (dark) {
+      document.body.classList.add("dark");
+      localStorage.setItem("dark", "true");
+    } else {
+      document.body.classList.remove("dark");
+      localStorage.setItem("dark", "false");
+    }
+  }, [dark]);
 
   const toggleDropdown = () => setDropdownOpen(!isDropdownOpen);
   const toggleMobileMenu = () => setMobileMenuOpen(!isMobileMenuOpen);
 
-  // handle dark mode
-  const darkModeHandler = () => {
-    setDark(!dark);
-    document.body.classList.toggle("dark");
-  };
   const handleLogout = () => {
     logoutUser()
       .then(() => {
@@ -49,15 +54,15 @@ export default function Navbar() {
         {/* Navigation Links */}
         <div
           className={`${
-            isMobileMenuOpen ? "block" : "hidden"
-          } md:flex md:items-center absolute md:static top-16 left-0 w-full bg-teal-600 dark:bg-teal-800 md:w-auto md:bg-transparent`}
+            isMobileMenuOpen ? "left-0" : "-left-full"
+          } fixed top-16 w-full md:static md:w-auto md:flex bg-teal-600 dark:bg-teal-800 transition-all duration-300 z-10`}
         >
           <NavLink
             to="/"
             className={({ isActive }) =>
               isActive
-                ? "block px-4 py-2 font-bold text-white bg-teal-700"
-                : "block px-4 py-2 text-gray-200 hover:bg-teal-700"
+                ? "block px-4 py-2 font-semibold text-teal-100 border-b-2 border-yellow-400"
+                : "block px-4 py-2 text-gray-200 hover:text-teal-100 hover:bg-teal-700 transition duration-300"
             }
           >
             Home
@@ -66,8 +71,8 @@ export default function Navbar() {
             to="/all-foods"
             className={({ isActive }) =>
               isActive
-                ? "block px-4 py-2 font-bold text-white bg-teal-700"
-                : "block px-4 py-2 text-gray-200 hover:bg-teal-700"
+                ? "block px-4 py-2 font-semibold text-teal-100 border-b-2 border-yellow-400"
+                : "block px-4 py-2 text-gray-200 hover:text-teal-100 hover:bg-teal-700 transition duration-300"
             }
           >
             All Foods
@@ -76,15 +81,15 @@ export default function Navbar() {
             to="/gallery"
             className={({ isActive }) =>
               isActive
-                ? "block px-4 py-2 font-bold text-white bg-teal-700"
-                : "block px-4 py-2 text-gray-200 hover:bg-teal-700"
+                ? "block px-4 py-2 font-semibold text-teal-100 border-b-2 border-yellow-400"
+                : "block px-4 py-2 text-gray-200 hover:text-teal-100 hover:bg-teal-700 transition duration-300"
             }
           >
             Gallery
           </NavLink>
           {/* Dark Mode Toggle */}
           <button
-            onClick={() => darkModeHandler()}
+            onClick={() => setDark(!dark)}
             className="block px-4 py-2 text-gray-200 hover:bg-teal-700"
           >
             {dark ? <IoSunny /> : <IoMoon />}
@@ -122,7 +127,7 @@ export default function Navbar() {
                         className={({ isActive }) =>
                           isActive
                             ? "block px-4 py-2 font-bold text-white bg-teal-700"
-                            : "block px-4 py-2 text-gray-200 hover:bg-teal-700"
+                            : "block px-4 py-2 text-gray-200 hover:text-teal-100 hover:bg-teal-700 transition duration-300"
                         }
                       >
                         My Foods
@@ -134,7 +139,7 @@ export default function Navbar() {
                         className={({ isActive }) =>
                           isActive
                             ? "block px-4 py-2 font-bold text-white bg-teal-700"
-                            : "block px-4 py-2 text-gray-200 hover:bg-teal-700"
+                            : "block px-4 py-2 text-gray-200 hover:text-teal-100 hover:bg-teal-700 transition duration-300"
                         }
                       >
                         Add Food
@@ -146,7 +151,7 @@ export default function Navbar() {
                         className={({ isActive }) =>
                           isActive
                             ? "block px-4 py-2 font-bold text-white bg-teal-700"
-                            : "block px-4 py-2 text-gray-200 hover:bg-teal-700"
+                            : "block px-4 py-2 text-gray-200 hover:text-teal-100 hover:bg-teal-700 transition duration-300"
                         }
                       >
                         My Orders
@@ -170,8 +175,8 @@ export default function Navbar() {
                 to="/login"
                 className={({ isActive }) =>
                   isActive
-                    ? "block px-4 py-2 font-bold text-white bg-teal-700"
-                    : "block px-4 py-2 text-gray-200 hover:bg-teal-700"
+                    ? "block px-4 py-2 font-semibold text-teal-100 border-b-2 border-yellow-400"
+                    : "block px-4 py-2 text-gray-200 hover:text-teal-100 hover:bg-teal-700 transition duration-300"
                 }
               >
                 Login
@@ -180,8 +185,8 @@ export default function Navbar() {
                 to="/register"
                 className={({ isActive }) =>
                   isActive
-                    ? "block px-4 py-2 font-bold text-white bg-teal-700"
-                    : "block px-4 py-2 text-gray-200 hover:bg-teal-700"
+                    ? "block px-4 py-2 font-semibold text-teal-100 border-b-2 border-yellow-400"
+                    : "block px-4 py-2 text-gray-200 hover:text-teal-100 hover:bg-teal-700 transition duration-300"
                 }
               >
                 Register
