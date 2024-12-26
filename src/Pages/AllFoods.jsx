@@ -14,7 +14,7 @@ export default function AllFoods() {
   const [currentPage, setCurrentPage] = useState(0);
   const [itemPerPage, setItemPerPage] = useState(9);
   const [count, setCount] = useState(0);
-  console.log(count);
+  // console.log(count);
 
   const numberOfPages = Math.ceil(count / itemPerPage);
   const pages = [...Array(numberOfPages).keys()];
@@ -27,7 +27,7 @@ export default function AllFoods() {
         }/foods?search=${search}&page=${currentPage}&size=${itemPerPage}`
       );
 
-      console.log(data);
+      // console.log(data);
 
       setFoods(data.result);
       setCount(data.totalCount);
@@ -77,22 +77,19 @@ export default function AllFoods() {
             />
           </div>
 
-          {/* Empty State */}
+          {/* empty search */}
           {foods.length === 0 && search && (
             <div className="text-center text-xl text-gray-500 dark:text-gray-400 mt-8">
               No foods found for "{search}". Try a different search.
             </div>
           )}
 
-          {/* Food Cards */}
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 w-10/12 mx-auto">
             {foods.map((food) => (
               <AllFoodsCard key={food._id} food={food}></AllFoodsCard>
             ))}
           </div>
-          {/* pagination */}
           <div className="text-center my-8 space-y-4">
-            {/* Pagination Buttons */}
             <div className="flex items-center justify-center space-x-2">
               <button
                 onClick={handlePrevPage}

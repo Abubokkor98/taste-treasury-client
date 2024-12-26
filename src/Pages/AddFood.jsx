@@ -60,7 +60,6 @@ export default function AddFood() {
           Add New Food Item
         </h2>
         <form onSubmit={handleSubmit} className="space-y-6">
-          {/* Food Name */}
           <div>
             <label className="block text-teal-700 dark:text-teal-300 text-sm font-medium">
               Food Name
@@ -73,8 +72,6 @@ export default function AddFood() {
               required
             />
           </div>
-
-          {/* Food Image */}
           <div>
             <label className="block text-teal-700 dark:text-teal-300 text-sm font-medium">
               Food Image URL
@@ -87,8 +84,6 @@ export default function AddFood() {
               required
             />
           </div>
-
-          {/* Food Category */}
           <div>
             <label className="block text-teal-700 dark:text-teal-300 text-sm font-medium">
               Food Category
@@ -109,8 +104,6 @@ export default function AddFood() {
               <option value="breakfast">Breakfast</option>
             </select>
           </div>
-
-          {/* Quantity & Price */}
           <div className="grid grid-cols-2 gap-6">
             <div>
               <label className="block text-teal-700 dark:text-teal-300 text-sm font-medium">
@@ -139,8 +132,6 @@ export default function AddFood() {
               />
             </div>
           </div>
-
-          {/* Food Origin */}
           <div>
             <label className="block text-teal-700 dark:text-teal-300 text-sm font-medium">
               Food Origin (Country)
@@ -153,8 +144,6 @@ export default function AddFood() {
               required
             />
           </div>
-
-          {/* Description */}
           <div>
             <label className="block text-teal-700 dark:text-teal-300 text-sm font-medium">
               Description
@@ -167,8 +156,6 @@ export default function AddFood() {
               required
             ></textarea>
           </div>
-
-          {/* Add Item Button */}
           <div>
             <button
               type="submit"

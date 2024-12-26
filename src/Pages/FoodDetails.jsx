@@ -51,16 +51,12 @@ export default function FoodDetails() {
 
         {/* Food Details */}
         <div className="lg:w-1/2 p-8 space-y-6 bg-white dark:bg-gray-900">
-          {/* Food Name */}
           <h2 className="text-3xl lg:text-4xl font-extrabold text-gray-800 dark:text-gray-100 tracking-wide transition-all duration-200 hover:text-teal-500">
             {foodName}
           </h2>
-          {/* Description */}
           <p className="text-lg text-gray-700 dark:text-gray-300">
             {description}
           </p>
-
-          {/* Details Grid */}
           <div className="grid grid-cols-2 gap-8 mt-4 text-sm sm:text-base">
             <div>
               <p className="font-medium text-teal-500 dark:text-teal-400">

@@ -6,17 +6,18 @@ const Footer = () => {
   return (
     <footer className="bg-teal-700 text-white dark:bg-gray-800 dark:text-gray-200 py-10">
       <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
-        {/* Column 1: Logo and About */}
+        {/* Col 1 */}
         <div className="space-y-4">
           <h2 className="text-3xl font-bold text-yellow-400 dark:text-yellow-300">
             Taste Treasury
           </h2>
           <p className="text-sm text-blue-200 dark:text-gray-400 leading-relaxed">
-            Simplify your restaurant management experience. Taste Treasury offers tools to manage, grow, and scale your services.
+            Simplify your restaurant management experience. Taste Treasury
+            offers tools to manage, grow, and scale your services.
           </p>
         </div>
 
-        {/* Column 2: Quick Links */}
+        {/* Col 2 */}
         <div className="space-y-4">
           <h3 className="text-lg font-semibold text-purple-400 dark:text-purple-300">
             Quick Links
@@ -57,7 +58,7 @@ const Footer = () => {
           </ul>
         </div>
 
-        {/* Column 3: Social Media */}
+        {/* Col 3 */}
         <div className="space-y-4">
           <h3 className="text-lg font-semibold text-red-400 dark:text-red-300">
             Follow Us
@@ -90,8 +91,6 @@ const Footer = () => {
           </div>
         </div>
       </div>
-
-      {/* Bottom Bar */}
       <div className="mt-8 border-t border-blue-400 dark:border-gray-600 pt-4 text-center text-sm text-blue-200 dark:text-gray-400">
         © {new Date().getFullYear()} Taste Treasury. All rights reserved.
       </div>

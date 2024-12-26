@@ -58,7 +58,6 @@ export default function Register() {
           Create an Account
         </h2>
         <form onSubmit={handleRegister}>
-          {/* Name Field */}
           <div className="mb-4">
             <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
               Name
@@ -71,8 +70,6 @@ export default function Register() {
               required
             />
           </div>
-
-          {/* Email Field */}
           <div className="mb-4">
             <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
               Email
@@ -85,8 +82,6 @@ export default function Register() {
               required
             />
           </div>
-
-          {/* Photo URL Field */}
           <div className="mb-4">
             <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
               Photo URL
@@ -99,8 +94,6 @@ export default function Register() {
               required
             />
           </div>
-
-          {/* Password Field */}
           <div className="mb-4 relative">
             <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
               Password
@@ -121,8 +114,6 @@ export default function Register() {
             </button>
             {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
           </div>
-
-          {/* Submit Button */}
           <button
             type="submit"
             className="w-full py-3 mt-4 bg-gradient-to-r from-teal-500 to-blue-500 text-white font-semibold rounded-lg shadow-lg hover:opacity-90 transition duration-200"

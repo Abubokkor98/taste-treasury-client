@@ -40,7 +40,7 @@ export default function Login() {
           Welcome Back!
         </h2>
         <form onSubmit={handleLogin}>
-          {/* Email Field */}
+          {/* email */}
           <div className="mb-6">
             <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
               Email
@@ -54,7 +54,7 @@ export default function Login() {
             />
           </div>
 
-          {/* Password Field */}
+          {/* Password*/}
           <div className="mb-6 relative">
             <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
               Password
@@ -75,7 +75,7 @@ export default function Login() {
             </button>
           </div>
 
-          {/* Login Button */}
+          {/* Login*/}
           <button
             type="submit"
             className="w-full py-3 mt-4 bg-gradient-to-r from-teal-500 to-teal-600 text-white font-medium rounded-lg hover:bg-gradient-to-l hover:from-teal-600 hover:to-teal-500 transition duration-200 ease-in-out"
@@ -84,7 +84,6 @@ export default function Login() {
           </button>
         </form>
 
-        {/* Register Link */}
         <p className="mt-6 text-center text-gray-600 dark:text-gray-400">
           Don't have an account?{" "}
           <Link

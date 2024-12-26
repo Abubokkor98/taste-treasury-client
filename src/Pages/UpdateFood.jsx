@@ -53,7 +53,7 @@ export default function UpdateFood() {
     try {
       // 1. make a post request
       const { data } = await AxiosSecure.put(`/food/${_id}`, updatedFood);
-      console.log(data);
+      // console.log(data);
       if (data.modifiedCount > 0) {
         toast.success("Food Update Successfully!!!");
         navigate("/my-foods");
@@ -77,7 +77,6 @@ export default function UpdateFood() {
         className="bg-white shadow-lg rounded-lg p-6 dark:bg-gray-800 dark:border dark:border-gray-700 space-y-6"
       >
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          {/* Food Name */}
           <div>
             <label className="block text-sm font-medium text-teal-700 dark:text-teal-300 mb-2">
               Food Name
@@ -91,8 +90,6 @@ export default function UpdateFood() {
               placeholder="Enter food name"
             />
           </div>
-
-          {/* Food Category */}
           <div>
             <label className="block text-sm font-medium text-teal-700 dark:text-teal-300 mb-2">
               Food Category
@@ -116,8 +113,6 @@ export default function UpdateFood() {
               <option value="breakfast">Breakfast</option>
             </select>
           </div>
-
-          {/* Price */}
           <div>
             <label className="block text-sm font-medium text-teal-700 dark:text-teal-300 mb-2">
               Price
@@ -131,8 +126,6 @@ export default function UpdateFood() {
               placeholder="Enter price"
             />
           </div>
-
-          {/* Origin */}
           <div>
             <label className="block text-sm font-medium text-teal-700 dark:text-teal-300 mb-2">
               Origin
@@ -146,8 +139,6 @@ export default function UpdateFood() {
               placeholder="Enter origin"
             />
           </div>
-
-          {/* Quantity */}
           <div>
             <label className="block text-sm font-medium text-teal-700 dark:text-teal-300 mb-2">
               Quantity
@@ -161,8 +152,6 @@ export default function UpdateFood() {
               placeholder="Enter quantity"
             />
           </div>
-
-          {/* Food Image URL */}
           <div>
             <label className="block text-sm font-medium text-teal-700 dark:text-teal-300 mb-2">
               Food Image URL
@@ -177,8 +166,6 @@ export default function UpdateFood() {
             />
           </div>
         </div>
-
-        {/* Description */}
         <div>
           <label className="block text-sm font-medium text-teal-700 dark:text-teal-300 mb-2">
             Description
@@ -192,8 +179,6 @@ export default function UpdateFood() {
             placeholder="Enter description"
           ></textarea>
         </div>
-
-        {/* Update Button */}
         <button
           type="submit"
           className="w-full py-3 bg-teal-600 text-white font-semibold rounded-md shadow-md hover:bg-teal-700 dark:bg-teal-500 dark:hover:bg-teal-400 focus:outline-none focus:ring-2 focus:ring-teal-500 transition-all"

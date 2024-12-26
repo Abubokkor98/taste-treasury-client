@@ -23,7 +23,7 @@ export default function MyFoods() {
     setFoods(data);
     setLoading(false);
   };
-  console.log(foods);
+
 
   return (
     <div className="min-h-[calc(100vh-376.8px)] bg-gray-50 dark:bg-gray-800 px-4 py-8">

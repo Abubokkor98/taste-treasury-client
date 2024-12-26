@@ -43,7 +43,7 @@ export default function Navbar() {
           Taste Treasury
         </NavLink>
 
-        {/* Hamburger Icon for Mobile/Tablet */}
+        {/* Hamburger */}
         <button
           onClick={toggleMobileMenu}
           className="md:hidden text-white text-2xl"
@@ -51,7 +51,6 @@ export default function Navbar() {
           {isMobileMenuOpen ? <FaTimes /> : <FaBars />}
         </button>
 
-        {/* Navigation Links */}
         <div
           className={`${
             isMobileMenuOpen ? "left-0" : "-left-full"
@@ -95,7 +94,6 @@ export default function Navbar() {
             {dark ? <IoSunny /> : <IoMoon />}
           </button>
 
-          {/* User Profile/Menu */}
           {user ? (
             <div
               className="relative block px-4 py-2 md:inline"

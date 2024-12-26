@@ -47,7 +47,7 @@ export default function AuthProvider({ children }) {
   // firease observer
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (curretUser) => {
-      console.log("current user-->", curretUser);
+      // console.log("current user", curretUser);
       if (curretUser?.email) {
         setUser(curretUser);
         const { data } = await axios.post(
@@ -57,7 +57,7 @@ export default function AuthProvider({ children }) {
           },
           { withCredentials: true }
         );
-        console.log(data);
+        // console.log(data);
       } else {
         setUser(curretUser);
         const { data } = await axios.get(

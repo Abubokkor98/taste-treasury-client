@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
-import axios from "axios";
 import MyOrdersTableRow from "../Components/MyOrdersTableRow";
 import useAxiosSecure from "../customHooks/useAxiosSecure";
 import { Helmet } from "react-helmet-async";
@@ -27,7 +26,6 @@ export default function MyOrders() {
     }
   };
 
-  console.log(orders);
 
   return (
     <div className="min-h-[calc(100vh-376.8px)] bg-gray-50 dark:bg-gray-800 px-4 py-8">

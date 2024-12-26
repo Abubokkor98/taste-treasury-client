@@ -55,7 +55,6 @@ export default function WhyChooseUs() {
   return (
     <div className="bg-gray-50 dark:bg-gray-900 py-16">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        {/* Section Header */}
         <div className="text-center mb-12">
           <Fade cascade>
             {" "}
@@ -68,8 +67,6 @@ export default function WhyChooseUs() {
             </p>
           </Fade>
         </div>
-
-        {/* Features Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           <Zoom cascade damping={0.1}>
             {features.map((feature) => (

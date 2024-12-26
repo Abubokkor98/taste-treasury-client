@@ -19,7 +19,7 @@ const TopFoods = () => {
     };
     fetchAllFoods();
   }, []);
-  console.log(foods);
+  // console.log(foods);
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-8">
@@ -45,7 +45,7 @@ const TopFoods = () => {
           </div>
         </>
       )}
-      {/* See All Button */}
+      {/* button */}
       <div className="text-center mt-8">
         <Link to="/all-foods">
           <button className="bg-teal-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-teal-600 transition-colors duration-200 dark:bg-teal-600 dark:hover:bg-teal-700">
