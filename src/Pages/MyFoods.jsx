@@ -28,7 +28,7 @@ export default function MyFoods() {
   console.log(foods);
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-800 px-4 py-8">
+    <div className="min-h-[calc(100vh-376.8px)] bg-gray-50 dark:bg-gray-800 px-4 py-8">
       <Helmet>
         <title>My Foods | Taste Treasury</title>
       </Helmet>
@@ -37,7 +37,7 @@ export default function MyFoods() {
         <LoadingSpinner></LoadingSpinner>
       ) : (
         <>
-          <h2 className="text-3xl font-semibold text-center text-gray-800 dark:text-white mb-6">
+          <h2 className="text-4xl font-bold text-center text-teal-600 dark:text-teal-400 mb-6">
             My Foods {foods.length}
           </h2>
 
@@ -55,7 +55,11 @@ export default function MyFoods() {
                 </thead>
                 <tbody>
                   {foods.map((food) => (
-                    <MyFoodTableRow key={food._id} food={food} fetchAllFoods={fetchAllFoods} />
+                    <MyFoodTableRow
+                      key={food._id}
+                      food={food}
+                      fetchAllFoods={fetchAllFoods}
+                    />
                   ))}
                 </tbody>
               </table>

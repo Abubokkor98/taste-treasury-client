@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import TopFoodCard from "./TopFoodCard";
 import LoadingSpinner from "./LoadingSpinner";
+import { Fade, Zoom } from "react-awesome-reveal";
 
 const TopFoods = () => {
   const [foods, setFoods] = useState([]);
@@ -36,9 +37,11 @@ const TopFoods = () => {
       ) : (
         <>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {foods.map((food) => (
-              <TopFoodCard key={food._id} food={food}></TopFoodCard>
-            ))}
+            <Zoom cascade damping={0.2}>
+              {foods.map((food) => (
+                <TopFoodCard key={food._id} food={food}></TopFoodCard>
+              ))}
+            </Zoom>
           </div>
         </>
       )}

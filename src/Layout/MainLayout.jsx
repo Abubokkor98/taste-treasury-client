@@ -6,7 +6,7 @@ import Footer from "../Components/Footer";
 
 export default function MainLayout() {
   return (
-    <div className="max-w-screen-2xl mx-auto bg-gray-50 dark:bg-gray-900 ">
+    <div className="max-w-screen-2xl mx-auto  bg-gradient-to-r from-teal-100 via-blue-100 to-purple-100 dark:from-gray-800 dark:via-gray-900 dark:to-black ">
       <header className="sticky top-0 z-50">
         <Navbar></Navbar>
       </header>

@@ -32,7 +32,7 @@ export default function FoodDetails() {
       <div className="bg-white dark:bg-gray-800 shadow-2xl rounded-3xl overflow-hidden flex flex-col lg:flex-row transition-all duration-300 ease-in-out">
         {/* Food Image */}
         <motion.div
-          className="relative lg:w-1/2 group"
+          className="relative lg:w-1/2 group mb-8 lg:mb-0"
           whileHover={{
             scale: 1.05,
             boxShadow: "0px 0px 15px rgba(0, 0, 0, 0.3)",
@@ -42,7 +42,7 @@ export default function FoodDetails() {
           <img
             src={foodImage}
             alt={foodName}
-            className="w-full h-full object-cover rounded-2xl transition-all duration-300"
+            className="w-full max-h-[420px] object-cover rounded-2xl transition-all duration-300"
           />
           <div className="absolute top-4 right-4 text-white font-bold text-xl bg-teal-500 dark:bg-teal-600 px-4 py-2 rounded-full shadow-lg">
             ${price}
@@ -52,7 +52,7 @@ export default function FoodDetails() {
         {/* Food Details */}
         <div className="lg:w-1/2 p-8 space-y-6 bg-white dark:bg-gray-900">
           {/* Food Name */}
-          <h2 className="text-4xl font-extrabold text-gray-800 dark:text-gray-100 tracking-wide transition-all duration-200 hover:text-teal-500">
+          <h2 className="text-3xl lg:text-4xl font-extrabold text-gray-800 dark:text-gray-100 tracking-wide transition-all duration-200 hover:text-teal-500">
             {foodName}
           </h2>
           {/* Description */}
@@ -61,36 +61,36 @@ export default function FoodDetails() {
           </p>
 
           {/* Details Grid */}
-          <div className="grid grid-cols-2 gap-8 mt-4">
+          <div className="grid grid-cols-2 gap-8 mt-4 text-sm sm:text-base">
             <div>
-              <p className="text-sm font-medium text-teal-500 dark:text-teal-400">
+              <p className="font-medium text-teal-500 dark:text-teal-400">
                 Category
               </p>
-              <p className="text-xl font-semibold text-gray-800 dark:text-gray-100">
+              <p className="font-semibold text-gray-800 dark:text-gray-100">
                 {foodCategory}
               </p>
             </div>
             <div>
-              <p className="text-sm font-medium text-teal-500 dark:text-teal-400">
+              <p className="font-medium text-teal-500 dark:text-teal-400">
                 Origin
               </p>
-              <p className="text-xl font-semibold text-gray-800 dark:text-gray-100">
+              <p className="font-semibold text-gray-800 dark:text-gray-100">
                 {foodOrigin}
               </p>
             </div>
             <div>
-              <p className="text-sm font-medium text-teal-500 dark:text-teal-400">
+              <p className="font-medium text-teal-500 dark:text-teal-400">
                 Quantity
               </p>
-              <p className="text-xl font-semibold text-gray-800 dark:text-gray-100">
+              <p className="font-semibold text-gray-800 dark:text-gray-100">
                 {quantity}
               </p>
             </div>
             <div>
-              <p className="text-sm font-medium text-teal-500 dark:text-teal-400">
+              <p className="font-medium text-teal-500 dark:text-teal-400">
                 Purchase Count
               </p>
-              <p className="text-xl font-semibold text-gray-800 dark:text-gray-100">
+              <p className="font-semibold text-gray-800 dark:text-gray-100">
                 {purchaseCount}
               </p>
             </div>

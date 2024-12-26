@@ -30,7 +30,7 @@ export default function MyOrders() {
   console.log(orders);
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-800 px-4 py-8">
+    <div className="min-h-[calc(100vh-376.8px)] bg-gray-50 dark:bg-gray-800 px-4 py-8">
       <Helmet>
         <title>My Orders | Taste Treasury</title>
       </Helmet>
@@ -39,7 +39,7 @@ export default function MyOrders() {
         <LoadingSpinner />
       ) : (
         <>
-          <h2 className="text-3xl font-semibold text-center text-gray-800 dark:text-white mb-6">
+          <h2 className="text-4xl font-bold text-center text-teal-600 dark:text-teal-400 mb-6">
             My Orders ({orders.length})
           </h2>
 

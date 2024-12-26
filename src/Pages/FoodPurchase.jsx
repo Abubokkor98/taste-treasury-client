@@ -66,7 +66,7 @@ export default function FoodPurchase() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex items-center justify-center px-4 py-12">
+    <div className="min-h-[calc(100vh-376.8px)] bg-gray-50 dark:bg-gray-900 flex items-center justify-center px-4 py-12">
       <Helmet>
         <title>Buy {foodName} | Taste Treasury</title>
       </Helmet>
@@ -78,7 +78,7 @@ export default function FoodPurchase() {
             <img
               src={foodImage}
               alt={foodName}
-              className="w-full h-64 md:h-full object-cover"
+              className="w-full h-64 md:max-h-[480px] object-cover"
             />
             <span className="absolute top-4 left-4 bg-teal-600 dark:bg-teal-500 text-white text-sm px-3 py-1 rounded-lg shadow">
               {foodCategory}

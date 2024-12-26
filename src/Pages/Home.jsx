@@ -19,7 +19,7 @@ export default function Home() {
         <section>
           <TopFoods></TopFoods>
         </section>
-        <section>
+        <section className="py-10">
           <CustomerReview></CustomerReview>
         </section>
       </main>

@@ -6,11 +6,12 @@ export default function CustomerReview() {
   const testimonials = [
     {
       id: 1,
-      name: "Emily Watson",
+      name: "Axd Ab",
       title: "Food Blogger",
       feedback:
         "Tasty Treasury has completely transformed how I discover and organize recipes. It's an absolute game-changer!",
-      image: "https://via.placeholder.com/100",
+      image: "https://i.ibb.co.com/PQ9K6cZ/logo.png",
+       
     },
     {
       id: 2,
@@ -18,7 +19,7 @@ export default function CustomerReview() {
       title: "Chef",
       feedback:
         "The perfect tool for anyone passionate about food! The design and usability are unmatched.",
-      image: "https://via.placeholder.com/100",
+      image: "https://i.ibb.co.com/nmv8DDS/5.jpg",
     },
     {
       id: 3,
@@ -26,7 +27,7 @@ export default function CustomerReview() {
       title: "Home Cook",
       feedback:
         "I love how easy it is to save and revisit my favorite recipes. A must-have for every kitchen enthusiast!",
-      image: "https://via.placeholder.com/100",
+      image: "https://i.ibb.co.com/PtMQb9F/3.jpg",
     },
     {
       id: 4,
@@ -34,7 +35,7 @@ export default function CustomerReview() {
       title: "Food Blogger",
       feedback:
         "Tasty Treasury has completely transformed how I discover and organize recipes. It's an absolute game-changer!",
-      image: "https://via.placeholder.com/100",
+      image: "https://i.ibb.co.com/8KMLCYT/4.jpg",
     },
     {
       id: 5,
@@ -42,20 +43,13 @@ export default function CustomerReview() {
       title: "Chef",
       feedback:
         "The perfect tool for anyone passionate about food! The design and usability are unmatched.",
-      image: "https://via.placeholder.com/100",
+      image: "https://i.ibb.co.com/5kFMd1V/cheif.jpg",
     },
-    {
-      id: 6,
-      name: "Sophia Lee",
-      title: "Home Cook",
-      feedback:
-        "I love how easy it is to save and revisit my favorite recipes. A must-have for every kitchen enthusiast!",
-      image: "https://via.placeholder.com/100",
-    },
+
   ];
 
   return (
-    <div className="max-w-7xl mx-auto p-8 bg-gradient-to-r from-teal-100 via-blue-100 to-purple-100 dark:from-gray-800 dark:via-gray-900 dark:to-black rounded-xl shadow-xl">
+    <div className="max-w-7xl mx-auto p-8 rounded-xl shadow-xl">
       <Fade cascade>
         <h2 className="text-4xl font-extrabold text-center mb-6 text-teal-600 dark:text-teal-300">
           What Our Foodies Say

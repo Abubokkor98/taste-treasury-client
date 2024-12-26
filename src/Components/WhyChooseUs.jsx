@@ -75,21 +75,21 @@ export default function WhyChooseUs() {
             {features.map((feature) => (
               <div
                 key={feature.id}
-                className="flex items-center bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg"
+                className="flex items-center bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg transform transition duration-500 hover:scale-110 hover:shadow-2xl"
               >
                 <div
                   className={`p-4 rounded-full ${
                     feature.id === 1
-                      ? "bg-teal-100 dark:bg-teal-600"
+                      ? "bg-teal-100 dark:bg-gray-900"
                       : feature.id === 2
-                      ? "bg-blue-100 dark:bg-blue-600"
+                      ? "bg-blue-100 dark:bg-gray-900"
                       : feature.id === 3
-                      ? "bg-yellow-100 dark:bg-yellow-600"
+                      ? "bg-yellow-100 dark:bg-gray-900"
                       : feature.id === 4
-                      ? "bg-red-100 dark:bg-red-600"
+                      ? "bg-red-100 dark:bg-gray-900"
                       : feature.id === 5
-                      ? "bg-purple-100 dark:bg-purple-600"
-                      : "bg-orange-100 dark:bg-orange-600"
+                      ? "bg-purple-100 dark:bg-gray-900"
+                      : "bg-orange-100 dark:bg-gray-900"
                   }`}
                 >
                   {feature.icon}
