@@ -150,7 +150,7 @@ export default function FoodPurchase() {
               type="submit"
               className="ml-auto bg-teal-600 dark:bg-teal-500 text-white px-6 py-3 rounded-lg shadow hover:bg-teal-700 dark:hover:bg-teal-600 focus:ring-2 focus:ring-teal-500 focus:outline-none transition"
             >
-              Purchase Now
+              Confirm Purchase
             </button>
           </form>
         </div>

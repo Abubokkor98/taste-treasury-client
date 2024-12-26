@@ -22,9 +22,15 @@ const TopFoods = () => {
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-8">
-      <h2 className="text-3xl font-bold text-center text-gray-800 dark:text-gray-200 mb-6">
-        Top Foods
+      <h2 className="text-5xl font-extrabold text-center text-teal-600 dark:text-teal-400 mb-6">
+        Top Picks for Foodies
       </h2>
+      <p className="mt-4 text-gray-600 dark:text-gray-400 mb-6 w-11/12 md:w-7/12 mx-auto text-center">
+        Explore our most popular dishes, loved by food enthusiasts for their
+        flavor, quality, and authenticity. Don't miss out on these crowd
+        favorites!
+      </p>
+
       {loading ? (
         <LoadingSpinner></LoadingSpinner>
       ) : (

@@ -13,6 +13,7 @@ export default function Home() {
       </Helmet>
       <header>
         <Slider></Slider>
+        
       </header>
       <main>
         <section>

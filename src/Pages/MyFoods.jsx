@@ -55,7 +55,7 @@ export default function MyFoods() {
                 </thead>
                 <tbody>
                   {foods.map((food) => (
-                    <MyFoodTableRow key={food._id} food={food} />
+                    <MyFoodTableRow key={food._id} food={food} fetchAllFoods={fetchAllFoods} />
                   ))}
                 </tbody>
               </table>

@@ -16,7 +16,7 @@ import { Link } from "react-router-dom";
 
 export default function Slider() {
   return (
-    <div>
+    <div className=" pt-5">
       <Swiper
         spaceBetween={30}
         centeredSlides={true}
@@ -97,7 +97,7 @@ export default function Slider() {
             <div className="hero-overlay bg-opacity-60 dark:bg-opacity-80"></div>
             <div className="hero-content text-neutral-content text-center">
               <div className="max-w-md">
-                <h1 className="mb-5 text-4xl md:text-5xl font-bold text-red-600 dark:text-red-400">
+                <h1 className="mb-5 text-4xl md:text-5xl font-bold text-teal-600 dark:text-teal-400">
                   Flavors Beyond Borders
                 </h1>
                 <p className="mb-5 text-white  dark:text-gray-300">
@@ -105,7 +105,7 @@ export default function Slider() {
                 </p>
                 <Link
                   to="/all-foods"
-                  className="bg-red-600 text-white px-6 py-3 rounded-md hover:bg-red-700 dark:hover:bg-red-500 transition"
+                  className="bg-teal-600 text-white px-6 py-3 rounded-md font-medium text-lg hover:bg-teal-700 dark:hover:bg-teal-500 transition"
                 >
                   View All Foods
                 </Link>

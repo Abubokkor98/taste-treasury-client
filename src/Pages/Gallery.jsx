@@ -8,6 +8,7 @@ import LoadingSpinner from "../Components/LoadingSpinner";
 import titleBackground from "../assets/bg.jpg";
 import PageTitle from "../utilities/PageTitle";
 import { Helmet } from "react-helmet-async";
+import { Zoom } from "react-awesome-reveal";
 
 const Gallery = () => {
   const [loading, setLoading] = useState(true);
@@ -22,7 +23,7 @@ const Gallery = () => {
         const { data } = await axios.get(
           `${import.meta.env.VITE_API_URL}/foods?search=`
         );
-        setFoods(data);
+        setFoods(data.result);
       } catch (error) {
         console.error("Error fetching foods:", error);
       } finally {
@@ -55,28 +56,31 @@ const Gallery = () => {
           <LoadingSpinner />
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-10">
-            {foods.map((food, index) => (
-              <div
-                key={index}
-                className="group relative cursor-pointer"
-                onClick={() => {
-                  setCurrentIndex(index);
-                  setLightboxOpen(true);
-                }}
-              >
-                <img
-                  src={food.foodImage}
-                  alt={food.foodName}
-                  className="w-full h-56 object-cover rounded-lg shadow-md dark:shadow-none"
-                />
-                {/* Overlay with additional information */}
-                <div className="absolute inset-0 bg-black bg-opacity-50 dark:bg-opacity-70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center p-4 text-center text-white">
-                  <h3 className="text-lg font-semibold">{food.foodName}</h3>
-                  <p className="text-sm">{food.description}</p>
-                  <p className="text-xs mt-2">Owner: {food.addedBy?.name}</p>
+            <Zoom cascade damping={0.1}>
+              {" "}
+              {foods.map((food, index) => (
+                <div
+                  key={index}
+                  className="group relative cursor-pointer"
+                  onClick={() => {
+                    setCurrentIndex(index);
+                    setLightboxOpen(true);
+                  }}
+                >
+                  <img
+                    src={food.foodImage}
+                    alt={food.foodName}
+                    className="w-full h-56 object-cover rounded-lg shadow-md dark:shadow-none"
+                  />
+                  {/* Overlay with additional information */}
+                  <div className="absolute inset-0 bg-black bg-opacity-50 dark:bg-opacity-70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center p-4 text-center text-white">
+                    <h3 className="text-lg font-semibold">{food.foodName}</h3>
+                    <p className="text-sm">{food.description}</p>
+                    <p className="text-xs mt-2">Owner: {food.addedBy?.name}</p>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </Zoom>
           </div>
         )}
       </div>

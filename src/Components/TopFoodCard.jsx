@@ -1,36 +1,61 @@
-import React from 'react';
+import React from "react";
 import { Link } from "react-router-dom";
+import { MdLocationOn, MdShoppingCart } from "react-icons/md";
 
 export default function TopFoodCard({ food }) {
+  const {
+    foodImage,
+    foodName,
+    foodCategory,
+    foodOrigin,
+    price,
+    purchaseCount,
+    _id,
+  } = food;
+
   return (
-    <div className="bg-white dark:bg-gray-800 shadow-lg rounded-lg overflow-hidden border border-gray-200 dark:border-gray-700 transition-all duration-300 ease-in-out">
+    <div className="max-w-sm bg-white dark:bg-gray-800 shadow-lg rounded-lg overflow-hidden border border-gray-200 dark:border-gray-700">
       {/* Food Image */}
       <div className="relative">
         <img
-          src={food.foodImage}
-          alt={food.foodName}
-          className="w-full h-56 object-cover rounded-t-lg"
+          src={foodImage}
+          alt={foodName}
+          className="w-full h-56 object-cover"
         />
+        {/* Price Tag */}
+        <div className="absolute top-4 left-4 bg-teal-500 text-white text-sm font-bold py-1 px-3 rounded-lg shadow-md">
+          ${price}
+        </div>
+        {/* Purchase Count Tag */}
+        <div className="absolute top-4 right-4 bg-yellow-400 text-gray-900 text-sm font-bold py-1 px-3 rounded-lg shadow-md flex items-center gap-1">
+          <MdShoppingCart className="text-base" /> {purchaseCount}
+        </div>
       </div>
 
-      {/* Food Details with Background Color */}
-      <div className="p-6 space-y-4 bg-teal-50 dark:bg-gray-900 rounded-b-lg">
+      {/* Food Details */}
+      <div className="p-5 space-y-3">
         {/* Food Name */}
-        <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-100 text-center">{food.foodName}</h3>
+        <h3 className="text-xl font-bold text-gray-800 dark:text-white truncate">
+          {foodName}
+        </h3>
 
-        {/* Purchase Count */}
-        <div className="text-center">
-          <p className="text-sm text-teal-600 dark:text-teal-400 font-medium">Purchases: {food.purchaseCount}</p>
+        {/* Food Category */}
+        <p className="text-sm text-teal-600 dark:text-teal-400 font-medium">
+          {foodCategory}
+        </p>
+
+        {/* Food Origin */}
+        <div className="flex items-center text-sm text-gray-600 dark:text-gray-400">
+          <MdLocationOn className="text-teal-600 dark:text-teal-400 mr-2 text-base" />
+          <span>Origin: {foodOrigin}</span>
         </div>
 
-        {/* Details Button */}
-        <div className="text-center">
-          <Link to={`/food/${food._id}`}>
-            <button className="py-2 px-6 bg-teal-500 dark:bg-teal-600 text-white rounded-lg text-lg font-semibold hover:bg-teal-600 dark:hover:bg-teal-700 transition duration-200 ease-in-out">
-              View Details
-            </button>
-          </Link>
-        </div>
+        {/* View Details Button */}
+        <Link to={`/food/${_id}`}>
+          <button className="w-full bg-teal-500 text-white py-2 rounded-lg font-semibold hover:bg-teal-600 dark:bg-teal-600 dark:hover:bg-teal-700 transition-all duration-200 mt-3">
+            View Details
+          </button>
+        </Link>
       </div>
     </div>
   );

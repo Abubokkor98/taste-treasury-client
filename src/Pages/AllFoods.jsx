@@ -12,19 +12,12 @@ export default function AllFoods() {
   const [search, setSearch] = useState("");
 
   const [currentPage, setCurrentPage] = useState(0);
-  const [itemPerPage, setItemPerPage] = useState(8);
+  const [itemPerPage, setItemPerPage] = useState(9);
   const [count, setCount] = useState(0);
   console.log(count);
 
   const numberOfPages = Math.ceil(count / itemPerPage);
   const pages = [...Array(numberOfPages).keys()];
-
-  // useEffect for foodCount
-  useEffect(() => {
-    fetch(`${import.meta.env.VITE_API_URL}/foodsCount`)
-      .then((res) => res.json())
-      .then((data) => setCount(data.count));
-  }, []);
 
   useEffect(() => {
     const fetchAllFoods = async () => {
@@ -33,7 +26,11 @@ export default function AllFoods() {
           import.meta.env.VITE_API_URL
         }/foods?search=${search}&page=${currentPage}&size=${itemPerPage}`
       );
-      setFoods(data);
+
+      console.log(data);
+
+      setFoods(data.result);
+      setCount(data.totalCount);
       setLoading(false);
     };
     fetchAllFoods();
@@ -50,7 +47,7 @@ export default function AllFoods() {
     }
   };
   const handleNextPage = () => {
-    if (currentPage < pages.length - 1) {
+    if (currentPage < pages?.length - 1) {
       setCurrentPage(currentPage + 1);
     }
   };
@@ -76,7 +73,7 @@ export default function AllFoods() {
               type="text"
               onChange={handleSearch}
               placeholder="Search for food..."
-              className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+              className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
             />
           </div>
 
@@ -88,7 +85,7 @@ export default function AllFoods() {
           )}
 
           {/* Food Cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 w-full">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 w-10/12 mx-auto">
             {foods.map((food) => (
               <AllFoodsCard key={food._id} food={food}></AllFoodsCard>
             ))}
@@ -114,7 +111,7 @@ export default function AllFoods() {
                       : "bg-gray-200 text-gray-800 hover:bg-gray-300"
                   }`}
                 >
-                  {page}
+                  {page + 1}
                 </button>
               ))}
               <button

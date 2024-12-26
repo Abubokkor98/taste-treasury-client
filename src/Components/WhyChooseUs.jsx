@@ -1,18 +1,28 @@
-import React from 'react';
-import { FaThumbsUp, FaClock, FaSeedling, FaHeadset, FaShippingFast, FaAward } from 'react-icons/fa';
+import React from "react";
+import { Fade, Zoom } from "react-awesome-reveal";
+import {
+  FaThumbsUp,
+  FaClock,
+  FaSeedling,
+  FaHeadset,
+  FaShippingFast,
+  FaAward,
+} from "react-icons/fa";
 
 const features = [
   {
     id: 1,
     icon: <FaSeedling className="text-teal-600 text-4xl" />,
     title: "Fresh Ingredients",
-    description: "We only use farm-fresh ingredients to ensure the best flavors in every bite.",
+    description:
+      "We only use farm-fresh ingredients to ensure the best flavors in every bite.",
   },
   {
     id: 2,
     icon: <FaClock className="text-blue-600 text-4xl" />,
     title: "Fast Service",
-    description: "Lightning-fast delivery and prompt service to satisfy your cravings on time.",
+    description:
+      "Lightning-fast delivery and prompt service to satisfy your cravings on time.",
   },
   {
     id: 3,
@@ -36,7 +46,8 @@ const features = [
     id: 6,
     icon: <FaAward className="text-orange-600 text-4xl" />,
     title: "Award-Winning Service",
-    description: "Recognized for our excellence in quality and customer satisfaction.",
+    description:
+      "Recognized for our excellence in quality and customer satisfaction.",
   },
 ];
 
@@ -46,39 +57,54 @@ export default function WhyChooseUs() {
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-extrabold text-gray-800 dark:text-white">
-            Why Choose <span className="text-blue-600">Taste Treasury</span>?
-          </h2>
-          <p className="mt-4 text-gray-600 dark:text-gray-400">
-            We are committed to delivering the best food experience with unmatched quality, speed, and customer care.
-          </p>
+          <Fade cascade>
+            {" "}
+            <h2 className="text-4xl font-extrabold text-gray-800 dark:text-white">
+              Why Choose <span className="text-blue-600">Taste Treasury</span>?
+            </h2>
+            <p className="mt-4 text-gray-600 dark:text-gray-400">
+              We are committed to delivering the best food experience with
+              unmatched quality, speed, and customer care.
+            </p>
+          </Fade>
         </div>
 
         {/* Features Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {features.map((feature) => (
-            <div
-              key={feature.id}
-              className="flex items-center bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg"
-            >
-              <div className={`p-4 rounded-full ${feature.id === 1 ? 'bg-teal-100 dark:bg-teal-600' : 
-                              feature.id === 2 ? 'bg-blue-100 dark:bg-blue-600' : 
-                              feature.id === 3 ? 'bg-yellow-100 dark:bg-yellow-600' : 
-                              feature.id === 4 ? 'bg-red-100 dark:bg-red-600' : 
-                              feature.id === 5 ? 'bg-purple-100 dark:bg-purple-600' : 
-                              'bg-orange-100 dark:bg-orange-600'}`}>
-                {feature.icon}
+          <Zoom cascade damping={0.1}>
+            {features.map((feature) => (
+              <div
+                key={feature.id}
+                className="flex items-center bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg"
+              >
+                <div
+                  className={`p-4 rounded-full ${
+                    feature.id === 1
+                      ? "bg-teal-100 dark:bg-teal-600"
+                      : feature.id === 2
+                      ? "bg-blue-100 dark:bg-blue-600"
+                      : feature.id === 3
+                      ? "bg-yellow-100 dark:bg-yellow-600"
+                      : feature.id === 4
+                      ? "bg-red-100 dark:bg-red-600"
+                      : feature.id === 5
+                      ? "bg-purple-100 dark:bg-purple-600"
+                      : "bg-orange-100 dark:bg-orange-600"
+                  }`}
+                >
+                  {feature.icon}
+                </div>
+                <div className="ml-6">
+                  <h3 className="text-xl font-semibold text-gray-800 dark:text-white">
+                    {feature.title}
+                  </h3>
+                  <p className="mt-2 text-gray-600 dark:text-gray-300">
+                    {feature.description}
+                  </p>
+                </div>
               </div>
-              <div className="ml-6">
-                <h3 className="text-xl font-semibold text-gray-800 dark:text-white">
-                  {feature.title}
-                </h3>
-                <p className="mt-2 text-gray-600 dark:text-gray-300">
-                  {feature.description}
-                </p>
-              </div>
-            </div>
-          ))}
+            ))}
+          </Zoom>
         </div>
       </div>
     </div>
