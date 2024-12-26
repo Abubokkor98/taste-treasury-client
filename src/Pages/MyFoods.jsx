@@ -1,8 +1,6 @@
 import { useContext, useEffect, useState } from "react";
-import { FaEdit } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
-import axios from "axios";
 import MyFoodTableRow from "../Components/MyFoodTableRow";
 import useAxiosSecure from "../customHooks/useAxiosSecure";
 import { Helmet } from "react-helmet-async";

@@ -4,37 +4,53 @@
 
 🔗 **Live Site:**
 
-- [Taste Treasury Live (Netlify)](#) <!-- Replace # with the actual live URL -->
+- [Taste Treasury Live (firebase)](https://assignment-11-7312b.web.app/)
+- [Taste Treasury Live (Netlify)](https://taste-treasury.netlify.app/)
 
 ---
 
-### **🚀 Overview**
+### **🚀 Overview**  
 
-Welcome to **Taste Treasury** – a cutting-edge solution designed to revolutionize restaurant management. With seamless features, modern design, and secure operations, our platform ensures efficient management for restaurant owners and an engaging experience for customers.
+Taste Treasury is a comprehensive platform designed to revolutionize restaurant management. It combines modern technology with an intuitive user interface to simplify tasks for both customers and administrators.  
+
+- **For Customers**: Explore menus, place orders, and enjoy a seamless browsing experience with responsive design and a light/dark mode toggle.  
+- **For Administrators**: Manage menus, track orders, and interact with customers through a dynamic admin panel equipped with secure tools and real-time updates.  
+
+With features like JWT-based authentication, engaging animations, and AI-driven future enhancements, Taste Treasury ensures a smarter, more efficient restaurant management experience.
 
 Our mission? To **empower the food industry** with innovative tools, delivered in style. 🍽️
 
 ---
 
-### **✨ Key Features**
+### **✨ Key Features**  
 
 - **🌟 Responsive Design for All Devices**  
-  Taste Treasury is optimized to work flawlessly on mobile, tablet, and desktop devices, ensuring a top-notch experience for everyone.
+  Seamlessly optimized for mobile, tablet, and desktop devices, providing a flawless experience across platforms.  
 
 - **🔒 Secure User Authentication**  
-  Register and log in effortlessly with Firebase-backed secure authentication.
+  Effortless registration and login powered by **Firebase**, enhanced with **JWT token-based authentication** and **cookie parsing** for secure session management.  
+
+- **🧠 Enhanced SEO with React Helmet**  
+  Improve search engine visibility and metadata handling using **React Helmet Async**.  
 
 - **🌗 Elegant Dark/Light Mode Toggle**  
-  Enhance user experience by switching between dark and light themes, perfect for any time of day.
+  Switch effortlessly between dark and light themes to suit any time of day and user preference.  
 
 - **💡 Engaging Animations**  
-  Powered by **Lottie React** and **React Awesome Reveal**, our animations bring the user experience to life.
+  Add vibrancy to the user experience with animations powered by **React Awesome Reveal** and **Framer Motion**.  
 
-- **🛠️ Admin Tools for Restaurant Management**  
-  Manage menus, track orders, and engage with customers easily using a dynamic admin panel.
+- **🚀 Smooth Scrolling Elements**  
+  Experience seamless scrolling effects with **React Fast Marquee**, enriching page interactions.  
+
+- **🛠️ Comprehensive Admin Tools**  
+  Streamlined restaurant management with features for menu updates, order tracking, and customer engagement via a dynamic admin panel.  
+
+- **📡 Secure API Calls with Axios**  
+  Effortlessly communicate with the backend using **Axios** and **Axios Secure** for robust and reliable API requests.  
 
 - **🎯 Future-Ready Features**  
-  AI-driven recommendations and real-time updates will make your restaurant management smarter and faster.
+  AI-driven recommendations and real-time updates, paving the way for smarter and faster restaurant management.  
+
 
 ---
 
@@ -43,9 +59,9 @@ Our mission? To **empower the food industry** with innovative tools, delivered i
 - **Frontend**: React.js, TailwindCSS (for sleek and responsive design)
 - **Animations**: Lottie React, React Awesome Reveal (for engaging motion effects)
 - **Routing**: React Router DOM (for smooth navigation)
-- **Authentication**: Firebase (for secure user login)
+- **Authentication**: Firebase, JWT Tokens, Cookie Parsing
 - **Backend**: Express.js, MongoDB (for server-side functionality and data management)
-
+- **API Communication**: Axios, Axios Secure 
 ---
 
 ### **🎮 How It Works**
