@@ -13,13 +13,12 @@ export default function Home() {
       </Helmet>
       <header>
         <Slider></Slider>
-        
       </header>
       <main>
         <section>
           <TopFoods></TopFoods>
         </section>
-        <section className="py-10">
+        <section>
           <CustomerReview></CustomerReview>
         </section>
       </main>

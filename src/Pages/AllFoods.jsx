@@ -12,7 +12,7 @@ export default function AllFoods() {
   const [search, setSearch] = useState("");
 
   const [currentPage, setCurrentPage] = useState(0);
-  const [itemPerPage, setItemPerPage] = useState(9);
+  const [itemPerPage, setItemPerPage] = useState(8);
   const [count, setCount] = useState(0);
   // console.log(count);
 
@@ -53,75 +53,77 @@ export default function AllFoods() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-800 flex flex-col items-center p-6">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-800  p-4 ">
       <Helmet>
         <title>All Foods | Taste Treasury</title>
       </Helmet>
-      {/* call pageTitle component */}
-      {loading ? (
-        <LoadingSpinner></LoadingSpinner>
-      ) : (
-        <>
-          <PageTitle
-            title={"All Foods | Taste Treasury"}
-            image={titleBackground}
-          ></PageTitle>
+      <div className="flex flex-col items-center mx-10">
+        {/* call pageTitle component */}
+        {loading ? (
+          <LoadingSpinner></LoadingSpinner>
+        ) : (
+          <>
+            <PageTitle
+              title={"All Foods | Taste Treasury"}
+              image={titleBackground}
+            ></PageTitle>
 
-          {/* Search Bar */}
-          <div className="mb-6 mt-10 w-full sm:w-96">
-            <input
-              type="text"
-              onChange={handleSearch}
-              placeholder="Search for food..."
-              className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
-            />
-          </div>
-
-          {/* empty search */}
-          {foods.length === 0 && search && (
-            <div className="text-center text-xl text-gray-500 dark:text-gray-400 mt-8">
-              No foods found for "{search}". Try a different search.
+            {/* Search Bar */}
+            <div className="mb-6 mt-10 w-full sm:w-96">
+              <input
+                type="text"
+                onChange={handleSearch}
+                placeholder="Search for food..."
+                className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+              />
             </div>
-          )}
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 w-10/12 mx-auto">
-            {foods.map((food) => (
-              <AllFoodsCard key={food._id} food={food}></AllFoodsCard>
-            ))}
-          </div>
-          <div className="text-center my-8 space-y-4">
-            <div className="flex items-center justify-center space-x-2">
-              <button
-                onClick={handlePrevPage}
-                className="px-3 py-2 text-white rounded-md bg-teal-500 font-semibold hover:bg-teal-600 transition-colors duration-200 disabled:opacity-30"
-                disabled={currentPage === 0}
-              >
-                Prev
-              </button>
-              {pages.map((page) => (
-                <button
-                  key={page}
-                  onClick={() => setCurrentPage(page)}
-                  className={`px-3 py-2 rounded-md transition ${
-                    currentPage === page
-                      ? "bg-teal-500 text-white"
-                      : "bg-gray-200 text-gray-800 hover:bg-gray-300"
-                  }`}
-                >
-                  {page + 1}
-                </button>
+            {/* empty search */}
+            {foods.length === 0 && search && (
+              <div className="text-center text-xl text-gray-500 dark:text-gray-400 mt-8">
+                No foods found for "{search}". Try a different search.
+              </div>
+            )}
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 w-full">
+              {foods.map((food) => (
+                <AllFoodsCard key={food._id} food={food}></AllFoodsCard>
               ))}
-              <button
-                onClick={handleNextPage}
-                className="px-3 py-2 text-white rounded-md bg-teal-500 font-semibold hover:bg-teal-600 transition-colors duration-200 disabled:opacity-30"
-                disabled={currentPage === pages.length - 1}
-              >
-                Next
-              </button>
             </div>
-          </div>
-        </>
-      )}
+            <div className="text-center my-8 space-y-4">
+              <div className="flex items-center justify-center space-x-2">
+                <button
+                  onClick={handlePrevPage}
+                  className="px-3 py-2 text-white rounded-md bg-teal-500 font-semibold hover:bg-teal-600 transition-colors duration-200 disabled:opacity-30"
+                  disabled={currentPage === 0}
+                >
+                  Prev
+                </button>
+                {pages.map((page) => (
+                  <button
+                    key={page}
+                    onClick={() => setCurrentPage(page)}
+                    className={`px-3 py-2 rounded-md transition ${
+                      currentPage === page
+                        ? "bg-teal-500 text-white"
+                        : "bg-gray-200 text-gray-800 hover:bg-gray-300"
+                    }`}
+                  >
+                    {page + 1}
+                  </button>
+                ))}
+                <button
+                  onClick={handleNextPage}
+                  className="px-3 py-2 text-white rounded-md bg-teal-500 font-semibold hover:bg-teal-600 transition-colors duration-200 disabled:opacity-30"
+                  disabled={currentPage === pages.length - 1}
+                >
+                  Next
+                </button>
+              </div>
+            </div>
+          </>
+        )}
+      </div>
     </div>
   );
 }

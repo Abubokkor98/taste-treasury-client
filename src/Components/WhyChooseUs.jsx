@@ -53,8 +53,8 @@ const features = [
 
 export default function WhyChooseUs() {
   return (
-    <div className="bg-gray-50 dark:bg-gray-900 py-16">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+    <div className="bg-gray-50 dark:bg-gray-900 px-4 py-8">
+      <div className="mx-10">
         <div className="text-center mb-12">
           <Fade cascade>
             {" "}

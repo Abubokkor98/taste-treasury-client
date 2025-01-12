@@ -16,7 +16,7 @@ import { Link } from "react-router-dom";
 
 export default function Slider() {
   return (
-    <div className=" pt-5">
+    <div className=" pt-5 mx-14">
       <Swiper
         spaceBetween={30}
         centeredSlides={true}

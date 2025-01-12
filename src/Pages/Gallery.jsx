@@ -43,11 +43,11 @@ const Gallery = () => {
   }));
 
   return (
-    <div className="p-6 bg-gray-50 dark:bg-gray-900">
+    <div className="p-4 bg-gray-50 dark:bg-gray-900">
       <Helmet>
         <title>Photo Gallery | Taste Treasury</title>
       </Helmet>
-      <div className="min-h-screen mx-auto">
+      <div className="min-h-screen mx-10">
         <PageTitle
           title={"Gallery | Taste Treasury"}
           image={titleBackground}

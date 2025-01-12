@@ -49,7 +49,7 @@ export default function CustomerReview() {
   ];
 
   return (
-    <div className="max-w-7xl mx-auto p-8 rounded-xl shadow-xl">
+    <div className="mx-10 px-4 py-8 rounded-xl shadow-xl">
       <Fade cascade>
         <h2 className="text-4xl font-extrabold text-center mb-6 text-teal-600 dark:text-teal-300">
           What Our Foodies Say

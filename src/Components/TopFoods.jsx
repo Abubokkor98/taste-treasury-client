@@ -22,8 +22,8 @@ const TopFoods = () => {
   // console.log(foods);
 
   return (
-    <div className="max-w-7xl mx-auto px-4 py-8">
-      <h2 className="text-5xl font-extrabold text-center text-teal-600 dark:text-teal-400 mb-6">
+    <div className="mx-10 px-4 py-8">
+      <h2 className="text-4xl font-extrabold text-center text-teal-600 dark:text-teal-400 mb-6">
         Top Picks for Foodies
       </h2>
       <p className="mt-4 text-gray-600 dark:text-gray-400 mb-6 w-11/12 md:w-7/12 mx-auto text-center">
@@ -36,7 +36,7 @@ const TopFoods = () => {
         <LoadingSpinner></LoadingSpinner>
       ) : (
         <>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             <Zoom cascade damping={0.2}>
               {foods.map((food) => (
                 <TopFoodCard key={food._id} food={food}></TopFoodCard>
