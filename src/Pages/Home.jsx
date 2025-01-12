@@ -4,6 +4,7 @@ import CustomerReview from "../Components/CustomerReview";
 import WhyChooseUs from "../Components/WhyChooseUs";
 import TopFoods from "../Components/TopFoods";
 import { Helmet } from "react-helmet-async";
+import Newsletter from "../Components/Newsletter";
 
 export default function Home() {
   return (
@@ -25,6 +26,9 @@ export default function Home() {
       <footer>
         <WhyChooseUs></WhyChooseUs>
       </footer>
+      <section>
+        <Newsletter></Newsletter>
+      </section>
     </div>
   );
 }
