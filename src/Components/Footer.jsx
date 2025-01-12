@@ -5,7 +5,7 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 const Footer = () => {
   return (
     <footer className="bg-teal-700 text-white dark:bg-gray-800 dark:text-gray-200 py-10">
-      <div className="mx-10 px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div className="lg:mx-10 px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
         {/* Col 1 */}
         <div className="space-y-4">
           <h2 className="text-3xl font-bold text-yellow-400 dark:text-yellow-300">

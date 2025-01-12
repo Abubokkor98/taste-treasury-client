@@ -57,7 +57,7 @@ export default function AllFoods() {
       <Helmet>
         <title>All Foods | Taste Treasury</title>
       </Helmet>
-      <div className="flex flex-col items-center mx-10">
+      <div className="flex flex-col items-center lg:mx-10">
         {/* call pageTitle component */}
         {loading ? (
           <LoadingSpinner></LoadingSpinner>
@@ -85,7 +85,7 @@ export default function AllFoods() {
               </div>
             )}
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 w-full">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 w-full">
               {foods.map((food) => (
                 <AllFoodsCard key={food._id} food={food}></AllFoodsCard>
               ))}

@@ -8,27 +8,25 @@ import Newsletter from "../Components/Newsletter";
 
 export default function Home() {
   return (
-    <div>
+    <main>
       <Helmet>
         <title>Home | Taste Treasury</title>
       </Helmet>
-      <header>
+      <section>
         <Slider></Slider>
-      </header>
-      <main>
-        <section>
-          <TopFoods></TopFoods>
-        </section>
-        <section>
-          <CustomerReview></CustomerReview>
-        </section>
-      </main>
-      <footer>
+      </section>
+      <section>
+        <TopFoods></TopFoods>
+      </section>
+      <section>
+        <CustomerReview></CustomerReview>
+      </section>
+      <section>
         <WhyChooseUs></WhyChooseUs>
-      </footer>
+      </section>
       <section>
         <Newsletter></Newsletter>
       </section>
-    </div>
+    </main>
   );
 }

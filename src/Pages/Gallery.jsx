@@ -47,7 +47,7 @@ const Gallery = () => {
       <Helmet>
         <title>Photo Gallery | Taste Treasury</title>
       </Helmet>
-      <div className="min-h-screen mx-10">
+      <div className="min-h-screen lg:mx-10">
         <PageTitle
           title={"Gallery | Taste Treasury"}
           image={titleBackground}

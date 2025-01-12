@@ -32,7 +32,7 @@ export default function MyOrders() {
         <title>My Orders | Taste Treasury</title>
       </Helmet>
 
-      <div className="mx-10">
+      <div className="lg:mx-10">
         {loading ? (
           <LoadingSpinner />
         ) : (

@@ -37,7 +37,7 @@ export default function Navbar() {
 
   return (
     <nav className=" bg-teal-600 dark:bg-teal-800 text-white p-4 shadow-md">
-      <div className="mx-10 flex justify-between items-center">
+      <div className="lg:mx-10 flex justify-between items-center">
         {/* Logo */}
         <NavLink to="/" className="text-2xl font-bold text-white">
           Taste Treasury

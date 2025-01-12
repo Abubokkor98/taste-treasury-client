@@ -54,14 +54,14 @@ const features = [
 export default function WhyChooseUs() {
   return (
     <div className="bg-gray-50 dark:bg-gray-900 px-4 py-8">
-      <div className="mx-10">
+      <div className="lg:mx-10">
         <div className="text-center mb-12">
           <Fade cascade>
             {" "}
             <h2 className="text-4xl font-extrabold text-gray-800 dark:text-white">
               Why Choose <span className="text-blue-600">Taste Treasury</span>?
             </h2>
-            <p className="mt-4 text-gray-600 dark:text-gray-400">
+            <p className="mt-4 text-gray-600 dark:text-gray-400 md:w-10/12 mx-auto">
               We are committed to delivering the best food experience with
               unmatched quality, speed, and customer care.
             </p>
