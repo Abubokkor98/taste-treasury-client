@@ -99,12 +99,6 @@ Taste Treasury relies on the following libraries:
   "yet-another-react-lightbox": "^3.21.7"
 }
 
-**Install Dependencies**  
-To install dependencies manually, use:
-
-```bash
-npm install
-```
 
 ---
 
