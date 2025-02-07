@@ -77,35 +77,73 @@ Our mission? To **empower the food industry** with innovative tools, delivered i
 ## 📦 Dependencies
 Taste Treasury relies on the following libraries:
 
-```json
-{
-  "@fortawesome/fontawesome-free": "^6.7.2",
-  "axios": "^1.7.9",
-  "firebase": "^11.1.0",
-  "framer-motion": "^11.15.0",
-  "localforage": "^1.10.0",
-  "match-sorter": "^8.0.0",
-  "moment": "^2.30.1",
-  "react": "^18.3.1",
-  "react-awesome-reveal": "^4.3.1",
-  "react-dom": "^18.3.1",
-  "react-fast-marquee": "^1.6.5",
-  "react-helmet-async": "^2.0.5",
-  "react-hot-toast": "^2.4.1",
-  "react-icons": "^5.4.0",
-  "react-router-dom": "^6.28.1",
-  "sort-by": "^1.2.0",
-  "swiper": "^11.1.15",
-  "yet-another-react-lightbox": "^3.21.7"
-}
+| Dependency                         | Version   | Description |
+|-------------------------------------|-----------|-------------|
+| **@fortawesome/fontawesome-free**   | `^6.7.2`  | Icon library for UI elements |
+| **axios**                           | `^1.7.9`  | Promise-based HTTP client |
+| **firebase**                        | `^11.1.0` | Google Firebase SDK |
+| **framer-motion**                   | `^11.15.0` | Library for animations |
+| **localforage**                     | `^1.10.0` | Local storage wrapper for better offline support |
+| **match-sorter**                    | `^8.0.0`  | Sorting and filtering utility |
+| **moment**                          | `^2.30.1` | Date and time manipulation library |
+| **react**                           | `^18.3.1` | React framework for UI development |
+| **react-awesome-reveal**            | `^4.3.1`  | Animation effects for React components |
+| **react-dom**                       | `^18.3.1` | React rendering package |
+| **react-fast-marquee**              | `^1.6.5`  | Smooth scrolling text/marquee component |
+| **react-helmet-async**              | `^2.0.5`  | Manage document head (SEO support) |
+| **react-hot-toast**                 | `^2.4.1`  | Notifications and toast messages |
+| **react-icons**                     | `^5.4.0`  | Collection of icons for React |
+| **react-router-dom**                | `^6.28.1` | Routing for React applications |
+| **sort-by**                         | `^1.2.0`  | Sorting utility for JavaScript objects |
+| **swiper**                          | `^11.1.15` | Mobile-friendly slider component |
+| **yet-another-react-lightbox**      | `^3.21.7` | Lightbox for displaying images |
 
+**Install Dependencies**
+To install dependencies manually, use:
+   ```bash
+   npm install
+   ```
 
 ---
 
-bash
-Copy
-Edit
-npm install
+## Installation and Setup 🚀
+
+1.  Clone the repository:
+    ```bash
+    git clone https://github.com/Abubokkor98/career-compass.git
+    ```
+2.  Navigate to the project directory:
+    ```bash
+    cd career-compass
+    ```
+3.  Install dependencies:
+    ```bash
+    npm install
+    ```
+4.  Set up Firebase:
+
+    - Create a Firebase project at [Firebase Console](https://console.firebase.google.com/).
+    - Enable Authentication and configure the desired sign-in methods.
+    - Copy the Firebase configuration and create a `.env` file in the root directory.
+    - Add the following variables:
+      ```plaintext
+      REACT_APP_FIREBASE_API_KEY=your-firebase-api-key
+      REACT_APP_FIREBASE_AUTH_DOMAIN=your-firebase-auth-domain
+      REACT_APP_FIREBASE_PROJECT_ID=your-firebase-project-id
+      REACT_APP_FIREBASE_STORAGE_BUCKET=your-firebase-storage-bucket
+      REACT_APP_FIREBASE_MESSAGING_SENDER_ID=your-firebase-messaging-sender-id
+      REACT_APP_FIREBASE_APP_ID=your-firebase-app-id
+
+      VITE_API_URL=your_backend_api_url
+``` 
+5. Start the development server:
+
+npm start
+```
+
+6. Access the application at `http://localhost:5173`.
+
+---
 
 ### **💡 Roadmap and Future Features**
 
