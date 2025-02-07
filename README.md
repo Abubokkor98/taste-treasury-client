@@ -74,6 +74,44 @@ Our mission? To **empower the food industry** with innovative tools, delivered i
 
 ---
 
+## 📦 Dependencies
+Taste Treasury relies on the following libraries:
+
+```json
+{
+  "@fortawesome/fontawesome-free": "^6.7.2",
+  "axios": "^1.7.9",
+  "firebase": "^11.1.0",
+  "framer-motion": "^11.15.0",
+  "localforage": "^1.10.0",
+  "match-sorter": "^8.0.0",
+  "moment": "^2.30.1",
+  "react": "^18.3.1",
+  "react-awesome-reveal": "^4.3.1",
+  "react-dom": "^18.3.1",
+  "react-fast-marquee": "^1.6.5",
+  "react-helmet-async": "^2.0.5",
+  "react-hot-toast": "^2.4.1",
+  "react-icons": "^5.4.0",
+  "react-router-dom": "^6.28.1",
+  "sort-by": "^1.2.0",
+  "swiper": "^11.1.15",
+  "yet-another-react-lightbox": "^3.21.7"
+}
+
+**Install Dependencies**
+To install dependencies manually, use::
+   ```bash
+   npm install
+   ```
+
+---
+
+bash
+Copy
+Edit
+npm install
+
 ### **💡 Roadmap and Future Features**
 
 1. **💳 Payment Integration**  
