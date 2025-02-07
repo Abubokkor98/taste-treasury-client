@@ -100,7 +100,7 @@ Taste Treasury relies on the following libraries:
 }
 
 **Install Dependencies**
-To install dependencies manually, use::
+To install dependencies manually, use:
    ```bash
    npm install
    ```
