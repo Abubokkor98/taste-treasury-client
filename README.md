@@ -180,7 +180,7 @@ We welcome contributions! Follow these steps to contribute:
 Built with 💻 and passion by **Abu Bokkor Siddik**.
 
 - **GitHub**: [Abubokkor98](https://github.com/Abubokkor98)
-- **LinkedIn**: [LinkedIn](https://www.linkedin.com/in/abubokkor)
+- **LinkedIn**: [Connect with me](https://www.linkedin.com/in/abubokkor)
 
 ---
 
